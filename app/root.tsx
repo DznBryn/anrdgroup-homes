@@ -1,33 +1,46 @@
-import type { LinksFunction } from "@remix-run/cloudflare";
-import { cssBundleHref } from "@remix-run/css-bundle";
+import type { ReactNode } from 'react';
+import type { LinksFunction } from '@remix-run/cloudflare';
+import { cssBundleHref } from '@remix-run/css-bundle';
+import tailwindStylesheet from '~/styles/tailwind.css';
 import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+	Links,
+	LiveReload,
+	Meta,
+	Outlet,
+	Scripts,
+	ScrollRestoration,
+} from '@remix-run/react';
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
+	{ rel: 'stylesheet', href: tailwindStylesheet },
 ];
 
 export default function App() {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  );
+	return (
+		<Document>
+			<Outlet />
+		</Document>
+	);
+}
+
+type DocumentProps = {
+	children: ReactNode;
+};
+
+function Document({ children }: DocumentProps) {
+	return (
+		<html lang='en'>
+			<head>
+				<Meta />
+				<Links />
+			</head>
+			<body>
+				{children}
+				<ScrollRestoration />
+				<Scripts />
+				{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+			</body>
+		</html>
+	);
 }
