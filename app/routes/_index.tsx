@@ -6,8 +6,15 @@ import Modals from '~/components/Modals/Modals';
 export const meta: V2_MetaFunction = () => {
 	return [
 		{ charset: 'utf-8' },
-		{ viewport: 'width=device-width, initial-scale=1.5' },
+		{ viewport: 'width=device-width, initial-scale=1' },
 		{ title: 'ANRD Homes | Real Estate Investing' },
+		{ property: 'og:type', content: 'website' },
+		{ property: 'og:site_name', content: 'anrdhomes.com' },
+		{ property: 'og:title', content: 'ANRD Homes | Real Estate Investing' },
+		{
+			property: 'og:description',
+			content: 'Building Communities for a Better Tomorrow',
+		},
 		{
 			name: 'description',
 			content: 'Building Communities for a Better Tomorrow',
@@ -16,7 +23,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
-	console.log("...Render Parent")
+	console.log('...Render Parent');
 	return (
 		<>
 			<div>
@@ -25,7 +32,7 @@ export default function Index() {
 						'https://imagedelivery.net/s-Qoq_uGoAvrpxHuBogfVA/00abeac7-a3ab-40ca-a411-9edb04552000/public'
 					}
 					styles={{
-						wrapper: 'h-screen overflow-y-auto ',
+						wrapper: 'h-full overflow-y-auto ',
 					}}>
 					<div className='h-full w-full relative flex justify-center items-center lg:w-1/2'>
 						<div className='bg-dark h-full w-full mix-blend-multiply absolute'></div>
