@@ -5,11 +5,7 @@ import Modals from '~/components/Modals/Modals';
 
 export const meta: V2_MetaFunction = () => {
 	return [
-		{ charset: 'utf-8' },
-		{ viewport: 'width=device-width, initial-scale=1' },
 		{ title: 'ANRD Homes | Real Estate Investing' },
-		{ property: 'og:type', content: 'website' },
-		{ property: 'og:site_name', content: 'anrdhomes.com' },
 		{ property: 'og:title', content: 'ANRD Homes | Real Estate Investing' },
 		{
 			property: 'og:description',
