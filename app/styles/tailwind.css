@@ -67,6 +67,9 @@
 }
 
 @layer base {
+	html{
+		@apply bg-dark
+	}
 	h1 {
 		@apply text-5xl md:text-6xl leading-tight md:leading-snug;
 	}
