@@ -162,3 +162,18 @@
 	size-adjust: 115.3%;
 }
 
+@layer base {
+	h1 {
+		@apply text-4xl md:text-5xl md:leading-tight;
+	}
+	h2 {
+		@apply text-xl sm:text-2xl md:text-3xl;
+	}
+	h3 {
+		@apply text-lg sm:text-xl md:text-2xl;
+	}
+	p, span, div, li, a {
+		@apply text-base;
+	}
+  
+}
