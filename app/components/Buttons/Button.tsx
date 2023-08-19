@@ -20,7 +20,7 @@ export default function Button({
 		<button
 			type='button'
 			onClick={handleClick}
-			className='rounded-md bg-green px-4 py-3 text-white transition-all ease-in-out duration-300 hover:bg-opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-opacity-75'>
+			className='rounded-md bg-green px-4 py-3 text-white transition-all ease-in-out duration-300 hover:bg-opacity-70 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-opacity-5'>
 			{children}
 		</button>
 	);
