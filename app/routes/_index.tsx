@@ -6,7 +6,7 @@ import Modals from '~/components/Modals/Modals';
 export const meta: V2_MetaFunction = () => {
 	return [
 		{ charset: 'utf-8' },
-		{ viewport: 'width=device-width,initial-scale=1' },
+		{ viewport: 'width=device-width, initial-scale=1.5' },
 		{ title: 'ANRD Homes | Real Estate Investing' },
 		{
 			name: 'description',
