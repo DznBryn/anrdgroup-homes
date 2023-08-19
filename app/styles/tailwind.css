@@ -164,16 +164,16 @@
 
 @layer base {
 	h1 {
-		@apply text-4xl md:text-5xl md:leading-tight;
+		@apply text-8xl md:text-6xl leading-tight md:leading-snug;
 	}
 	h2 {
-		@apply text-xl sm:text-2xl md:text-3xl;
+		@apply text-6xl md:text-5xl;
 	}
 	h3 {
-		@apply text-lg sm:text-xl md:text-2xl;
+		@apply text-4xl md:text-3xl;
 	}
 	p, span, div, li, a {
-		@apply text-base;
+		@apply text-2xl md:text-xl;
 	}
   
 }
