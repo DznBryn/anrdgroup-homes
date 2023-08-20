@@ -4,7 +4,7 @@ import Button from '~/components/Buttons/Button';
 import Modals from '~/components/Modals/Modals';
 import Section from '~/components/Section/Section';
 import { PROCESSES, SITUATIONS } from '~/libs/conts';
-import { ProcessCardProps } from '~/libs/type';
+import type { ProcessCardProps } from '~/libs/type';
 
 export const meta: V2_MetaFunction = () => {
 	return [
@@ -51,17 +51,11 @@ export default function Index() {
 								Let us turn your distressed property into a stress-free
 								transaction.
 							</p>
-<<<<<<< Updated upstream
-							<Button modal={"seller-form"}>
-								<span>get an offer</span>
-							</Button>
-=======
 							<div className='w-full h-auto flex justify-center mt-8'>
 								<Button modal={'seller-form'} classNames='bg-green'>
 									<span>get an offer</span>
 								</Button>
 							</div>
->>>>>>> Stashed changes
 						</div>
 					</div>
 				</Banner>
