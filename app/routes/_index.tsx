@@ -9,8 +9,18 @@ import type { ProcessCardProps } from '~/libs/type';
 export const meta: V2_MetaFunction = () => {
 	return [
 		{ charset: 'utf-8' },
-		{ viewport: 'width=device-width,initial-scale=1' },
+		{
+			viewport:
+				'width=device-width, initial-scale=2',
+		},
 		{ title: 'ANRD Homes | Real Estate Investing' },
+		{ property: 'og:type', content: 'website' },
+		{ property: 'og:site_name', content: 'anrdhomes.com' },
+		{ property: 'og:title', content: 'ANRD Homes | Real Estate Investing' },
+		{
+			property: 'og:description',
+			content: 'Building Communities for a Better Tomorrow',
+		},
 		{
 			name: 'description',
 			content: 'Building Communities for a Better Tomorrow',
@@ -19,7 +29,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
-	console.log("...Render Parent")
+	console.log('...Render Parent');
 	return (
 		<>
 			<div className='w-full h-auto grid grid-cols-1 gap-12'>
@@ -32,7 +42,7 @@ export default function Index() {
 					}}>
 					<div className='h-full w-full relative flex justify-center items-center md:w-1/2'>
 						<div className='bg-dark h-full w-full mix-blend-multiply absolute'></div>
-						<div className='w-auto max-w-md	h-auto absolute grid gap-6 p-8'>
+						<div className='w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-8 p-8'>
 							<h1 className='text-white font-bold '>
 								Selling
 								<br />
