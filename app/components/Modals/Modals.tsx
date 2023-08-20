@@ -4,8 +4,9 @@ import { ENUM_DIALOGS } from '~/libs/conts';
 import { useStore } from '~/utils/zustand/store';
 
 export default function Modals() {
-	const { modal:dialog, onChange } = useStore((store) => store.entries.modal);
-  const isDialogValid = ENUM_DIALOGS.includes(dialog.toLowerCase());
+	const { modal: dialog, onChange } = useStore((store) => store.entries.modal);
+	const isDialogValid = ENUM_DIALOGS.includes(dialog.toLowerCase());
+
 	const mapDialogs: Record<string, ReactNode> = {
 		'seller-form': (
 			<Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>

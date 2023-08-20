@@ -163,6 +163,15 @@
 }
 
 @layer base {
+<<<<<<< Updated upstream
+=======
+	html{
+		@apply bg-dark
+	}
+	body{
+		@apply bg-white
+	}
+>>>>>>> Stashed changes
 	h1 {
 		@apply text-4xl md:text-5xl md:leading-tight;
 	}
@@ -172,8 +181,16 @@
 	h3 {
 		@apply text-lg sm:text-xl md:text-2xl;
 	}
+<<<<<<< Updated upstream
 	p, span, div, li, a {
 		@apply text-base;
+=======
+	h4 {
+		@apply text-2xl;
+	}
+	p, span, div, li, a, button {
+		@apply text-xl;
+>>>>>>> Stashed changes
 	}
   
 }

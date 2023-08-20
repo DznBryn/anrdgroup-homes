@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import type { ModalProps } from "~/libs/type";
 
 type Props = {
   entries: {
