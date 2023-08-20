@@ -11,6 +11,7 @@ import {
 	ScrollRestoration,
 } from '@remix-run/react';
 
+
 export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 	{ rel: 'stylesheet', href: tailwindStylesheet },
@@ -39,7 +40,7 @@ function Document({ children }: DocumentProps) {
 				{children}
 				<ScrollRestoration />
 				<Scripts />
-				{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+				<LiveReload />
 			</body>
 		</html>
 	);
