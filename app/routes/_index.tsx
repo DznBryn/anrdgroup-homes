@@ -11,7 +11,7 @@ export const meta: V2_MetaFunction = () => {
 		{ charset: 'utf-8' },
 		{
 			viewport:
-				'width=device-width, initial-scale=2, maximum-scale=1.0, user-scalable=no',
+				'width=device-width, initial-scale=.5',
 		},
 		{ title: 'ANRD Homes | Real Estate Investing' },
 		{ property: 'og:type', content: 'website' },
@@ -29,10 +29,7 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
-<<<<<<< Updated upstream
 	console.log('...Render Parent');
-=======
->>>>>>> Stashed changes
 	return (
 		<>
 			<div className='w-full h-auto grid grid-cols-1 gap-12'>
