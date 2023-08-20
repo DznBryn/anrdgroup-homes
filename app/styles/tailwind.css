@@ -9,18 +9,6 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-regular';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
 
 @font-face {
 	font-family: 'LatoItalic';
@@ -30,37 +18,13 @@
 }
 
 @font-face {
-	font-family: 'Lato-Italic';
-	font-style: italic;
-	font-weight: 400;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
-
-@font-face {
 	font-family: 'LatoThin';
 	src: url('./fonts/Lato-Thin.ttf') format('truetype');
 	font-style: normal;
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-Thin';
-	font-style: normal;
-	font-weight: 100;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
+
 
 @font-face {
 	font-family: 'Lato-ThinItalic';
@@ -69,18 +33,6 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-Thin-Italic';
-	font-style: italic;
-	font-weight: 100;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
 
 @font-face {
 	font-family: 'LatoBold';
@@ -89,18 +41,6 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-Bold';
-	font-style: normal;
-	font-weight: 700;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
 
 @font-face {
 	font-family: 'Lato-BoldItalic';
@@ -109,18 +49,7 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-Bold-Italic';
-	font-style: italic;
-	font-weight: 700;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
+
 
 @font-face {
 	font-family: 'LatoBlack';
@@ -129,37 +58,12 @@
 	font-display: swap;
 }
 
-@font-face {
-	font-family: 'Lato-Black';
-	font-style: normal;
-	font-weight: 900;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
-}
 
 @font-face {
 	font-family: 'Lato-BlackItalic';
 	src: url('./fonts/Lato-BlackItalic.ttf') format('truetype');
 	font-style: italic;
 	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Lato-Black-Italic';
-	font-style: italic;
-	font-weight: 900;
-	src: local('Roboto'), local('Helvetica Neue'), local('Arial'),
-		local('Noto Sans'), local('Segoe UI'), local(-apple-system),
-		local(sans-serif), local(ui-sans-serif);
-	ascent-override: 84.57%;
-	descent-override: 27.27%;
-	line-gap-override: 0%;
-	size-adjust: 115.3%;
 }
 
 @layer base {
@@ -170,13 +74,13 @@
 		@apply bg-white
 	}
 	h1 {
-		@apply text-4xl md:text-5xl md:leading-tight;
+		@apply text-5xl md:text-6xl leading-tight md:leading-snug;
 	}
 	h2 {
-		@apply text-xl sm:text-2xl md:text-3xl;
+		@apply text-4xl md:text-5xl;
 	}
 	h3 {
-		@apply text-lg sm:text-xl md:text-2xl;
+		@apply text-2xl md:text-3xl;
 	}
 	h4 {
 		@apply text-2xl;
