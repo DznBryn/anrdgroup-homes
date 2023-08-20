@@ -19,9 +19,7 @@ export default function Section({
 					styles?.container ? styles.container : ''
 				}`}>
 				{header && header !== '' ? (
-					<h3 className='font-bold mb-4 md:mb-8 text-center'>
-						{header}
-					</h3>
+					<h3 className='font-bold mb-4 md:mb-8 text-center'>{header}</h3>
 				) : null}
 				{children}
 			</div>
