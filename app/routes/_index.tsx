@@ -29,7 +29,10 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export default function Index() {
+<<<<<<< Updated upstream
 	console.log('...Render Parent');
+=======
+>>>>>>> Stashed changes
 	return (
 		<>
 			<div className='w-full h-auto grid grid-cols-1 gap-12'>
