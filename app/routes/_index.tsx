@@ -9,10 +9,6 @@ import type { ProcessCardProps } from '~/libs/type';
 export const meta: V2_MetaFunction = () => {
 	return [
 		{ charset: 'utf-8' },
-		{
-			viewport:
-				'width=device-width, initial-scale=2',
-		},
 		{ title: 'ANRD Homes | Real Estate Investing' },
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
