@@ -1,7 +1,6 @@
 import type { V2_MetaFunction } from '@remix-run/cloudflare';
 import Banner from '~/components/Banners/Banner';
 import Button from '~/components/Buttons/Button';
-import Modals from '~/components/Modals/Modals';
 import Section from '~/components/Section/Section';
 import { PROCESSES, SITUATIONS } from '~/libs/conts';
 import type { ProcessCardProps } from '~/libs/type';
@@ -27,7 +26,6 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
 	console.log('...Render Parent');
 	return (
-		<>
 			<div className='w-full h-auto grid grid-cols-1 gap-12'>
 				<Banner
 					backgroundImage={
@@ -167,7 +165,5 @@ export default function Index() {
 						}}></div>
 				</Section>
 			</div>
-			<Modals />
-		</>
 	);
 }

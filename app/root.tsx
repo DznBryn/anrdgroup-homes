@@ -11,6 +11,8 @@ import {
 	Scripts,
 	ScrollRestoration
 } from '@remix-run/react';
+import Modals from './components/Modals/Modals';
+import Layout from './components/Layouts/Layout';
 
 
 export const links: LinksFunction = () => [
@@ -22,7 +24,10 @@ export const links: LinksFunction = () => [
 export default function App() {
 	return (
 		<Document>
-			<Outlet />
+			<Layout>
+				<Outlet />
+			</Layout>
+			<Modals />
 		</Document>
 	);
 }
