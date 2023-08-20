@@ -118,6 +118,54 @@ export default function Index() {
 						))}
 					</ul>
 				</Section>
+				<Section
+					styles={{
+						container: 'max-w-7xl grid grid-cols-1 md:grid-cols-2',
+					}}>
+					<div className='w-full h-auto bg-dark p-6 py-12 md:p-12 grid grid-cols-1 gap-6 order-1 md:order-0'>
+						<h3 className='font-bold text-white'>Our story</h3>
+						<div className='w-full h-auto grid grid-cols-1 gap-6'>
+							<p className='text-white'>
+								At <span className='font-bold'>ANRD Group Inc</span>, we're not
+								just an investment group – we're a compassionate force driven by
+								the desire to make a difference when it matters most. Our
+								mission is clear: seize opportunities to extend a helping hand
+								to those in need. Spearheading this endeavor is our asset
+								manager, Brian Demorcy. With over 8 years of expertise in
+								building software technology, he has seamlessly transitioned
+								into the world of real estate investment, a legacy passed down
+								from his father. Collaborating with dedicated business partners,
+								Brian has cultivated opportunities into a shining success story
+								over the years.
+							</p>
+							<p className='text-white'>
+								While we're still young, our growth is rapid and purposeful.
+								We're committed to expanding our reach to meet a wider array of
+								needs within communities. Today, our company thrives on more
+								than just profits; it thrives on uplifting neighborhoods that
+								require assistance. We recognize that real estate holds the
+								power to transform lives, and we're committed to utilizing our
+								resources to catalyze positive change.
+							</p>
+							<p className='text-white'>
+								What sets us apart is our embrace of technology. Unlike
+								traditional methods, we leverage cutting-edge technology to
+								enhance our ability to thrive in the markets we pour our efforts
+								into. From data-driven insights to streamlined processes, we
+								harness innovation to maximize impact. Join us on our journey as
+								we blend financial insight with a humanitarian spirit, utilizing
+								technology to create lasting change in the lives of those we
+								serve.
+							</p>
+						</div>
+					</div>
+					<div
+						className='w-full h-full relative overflow-hidden bg-cover bg-no-repeat order-0 md:order-1'
+						style={{
+							minHeight: '500px',
+							backgroundImage: `url(${'https://imagedelivery.net/s-Qoq_uGoAvrpxHuBogfVA/c3382fe8-5d06-4b59-0d69-202cf219f700/public'})`,
+						}}></div>
+				</Section>
 			</div>
 			<Modals />
 		</>
