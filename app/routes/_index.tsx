@@ -11,7 +11,7 @@ export const meta: V2_MetaFunction = () => {
 		{ charset: 'utf-8' },
 		{
 			viewport:
-				'width=device-width, initial-scale=.5',
+				'width=device-width, initial-scale=2',
 		},
 		{ title: 'ANRD Homes | Real Estate Investing' },
 		{ property: 'og:type', content: 'website' },
