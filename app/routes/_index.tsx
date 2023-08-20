@@ -36,7 +36,7 @@ export default function Index() {
 					}}>
 					<div className='h-full w-full relative flex justify-center items-center md:w-1/2'>
 						<div className='bg-dark h-full w-full mix-blend-multiply absolute'></div>
-						<div className='w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-8 p-8 py-12'>
+						<div className='w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-3 md:gap-8 p-8 py-12 top-14 md:top-auto'>
 							<h1 className='text-white font-bold '>
 								Selling
 								<br />
@@ -55,7 +55,7 @@ export default function Index() {
 								Let us turn your distressed property into a stress-free
 								transaction.
 							</p>
-							<div className='w-full h-auto flex justify-center mt-8'>
+							<div className='w-full h-auto flex justify-center mt-4 md:mt-8'>
 								<Button modal={'seller-form'} classNames='bg-green'>
 									<span>get an offer</span>
 								</Button>

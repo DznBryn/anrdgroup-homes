@@ -7,7 +7,7 @@ export default function Header({}: Props) {
 	return (
 		<div className='w-full md:w-1/2 h-auto p-6 flex justify-between items-center absolute z-50'>
 			<div className='w-full h-auto grid grid-cols-2 gap-x-6'>
-				<div className='w-20 h-auto'>
+				<div className='w-16 md:w-20 h-auto'>
 					<Icons variant='logo' color='fill-white' />
 				</div>
 			</div>
