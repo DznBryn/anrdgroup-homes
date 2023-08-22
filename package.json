@@ -9,6 +9,8 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.17",
     "@remix-run/cloudflare": "^1.19.3",
     "@remix-run/cloudflare-pages": "^1.19.3",

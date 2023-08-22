@@ -1,5 +1,8 @@
 import React from 'react';
 import Icons from '../Icons/Icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPhone, faMessage } from '@fortawesome/free-solid-svg-icons';
+import DropDown, { DropDownItem } from '../DropDown/DropDown';
 
 type Props = {};
 
@@ -13,15 +16,31 @@ export default function Header({}: Props) {
 			</div>
 			<div className='w-auto h-auto'>
 				<div className='w-max h-auto'>
-					<p className='text-white'>
-						Call or Text Today <br />
-						<a href='tel:+16098588881' className='font-bold'>
-							(609) 858-8881
-						</a>
-						{/* <a href='sms:+16098588881' className='font-bold'>
-							(609) 858-8881
-						</a> */}
-					</p>
+					<DropDown
+						text={
+							<p className='text-white'>
+								Call or Text Today <br />
+								<span className='font-bold'>(609) 858-8881</span>
+							</p>
+						}
+						className={'grid grid-cols-1'}>
+						<DropDownItem>
+							<a
+								className='flex items-center gap-2 px-4 py-4 hover:bg-green hover:text-white'
+								href='tel:+16098588881'>
+								<FontAwesomeIcon className='hover:fill-white' icon={faPhone} />
+								Call
+							</a>
+						</DropDownItem>
+						<DropDownItem>
+							<a
+								className='flex items-center gap-2 px-4 py-4 hover:bg-green hover:text-white'
+								href='sms:+16098588881'>
+								<FontAwesomeIcon className='' icon={faMessage} />
+								Text
+							</a>
+						</DropDownItem>
+					</DropDown>
 				</div>
 			</div>
 		</div>
