@@ -41,13 +41,18 @@ function Document({ children }: DocumentProps) {
 		<html lang='en'>
 			<head>
 				<Meta />
-				<meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+				<meta
+					name='viewport'
+					content='width=device-width,initial-scale=1.0'></meta>
 				<Links />
 			</head>
 			<body>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
+				<script
+					type='text/javascript'
+					src='//static.klaviyo.com/onsite/js/klaviyo.js?company_id=VB6Uwr'></script>
 				<LiveReload />
 			</body>
 		</html>
