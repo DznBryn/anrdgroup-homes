@@ -11,6 +11,8 @@ import {
 	Scripts,
 	ScrollRestoration
 } from '@remix-run/react';
+import Modals from './components/Modals/Modals';
+import Layout from './components/Layouts/Layout';
 
 
 export const links: LinksFunction = () => [
@@ -22,7 +24,10 @@ export const links: LinksFunction = () => [
 export default function App() {
 	return (
 		<Document>
-			<Outlet />
+			<Layout>
+				<Outlet />
+			</Layout>
+			<Modals />
 		</Document>
 	);
 }
@@ -36,13 +41,18 @@ function Document({ children }: DocumentProps) {
 		<html lang='en'>
 			<head>
 				<Meta />
-				<meta name="viewport" content="width=device-width,initial-scale=1.0"></meta>
+				<meta
+					name='viewport'
+					content='width=device-width,initial-scale=1.0'></meta>
 				<Links />
 			</head>
 			<body>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
+				<script
+					type='text/javascript'
+					src='//static.klaviyo.com/onsite/js/klaviyo.js?company_id=VB6Uwr'></script>
 				<LiveReload />
 			</body>
 		</html>

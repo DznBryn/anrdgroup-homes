@@ -1,7 +1,6 @@
 import type { V2_MetaFunction } from '@remix-run/cloudflare';
 import Banner from '~/components/Banners/Banner';
 import Button from '~/components/Buttons/Button';
-import Modals from '~/components/Modals/Modals';
 import Section from '~/components/Section/Section';
 import { PROCESSES, SITUATIONS } from '~/libs/conts';
 import type { ProcessCardProps } from '~/libs/type';
@@ -27,7 +26,6 @@ export const meta: V2_MetaFunction = () => {
 export default function Index() {
 	console.log('...Render Parent');
 	return (
-		<>
 			<div className='w-full h-auto grid grid-cols-1 gap-12'>
 				<Banner
 					backgroundImage={
@@ -38,7 +36,7 @@ export default function Index() {
 					}}>
 					<div className='h-full w-full relative flex justify-center items-center md:w-1/2'>
 						<div className='bg-dark h-full w-full mix-blend-multiply absolute'></div>
-						<div className='w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-8 p-8'>
+						<div className='w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-3 md:gap-8 p-8 py-12 top-14 md:top-auto'>
 							<h1 className='text-white font-bold '>
 								Selling
 								<br />
@@ -57,7 +55,7 @@ export default function Index() {
 								Let us turn your distressed property into a stress-free
 								transaction.
 							</p>
-							<div className='w-full h-auto flex justify-center mt-8'>
+							<div className='w-full h-auto flex justify-center mt-4 md:mt-8'>
 								<Button modal={'seller-form'} classNames='bg-green'>
 									<span>get an offer</span>
 								</Button>
@@ -118,8 +116,54 @@ export default function Index() {
 						))}
 					</ul>
 				</Section>
+				<Section
+					styles={{
+						container: 'max-w-7xl grid grid-cols-1 md:grid-cols-2',
+					}}>
+					<div className='w-full h-auto bg-dark p-6 py-12 md:p-12 grid grid-cols-1 gap-6 order-1 md:order-0'>
+						<h3 className='font-bold text-white'>Our story</h3>
+						<div className='w-full h-auto grid grid-cols-1 gap-6'>
+							<p className='text-white'>
+								At <span className='font-bold'>ANRD Group Inc</span>, we're not
+								just an investment group – we're a compassionate force driven by
+								the desire to make a difference when it matters most. Our
+								mission is clear: seize opportunities to extend a helping hand
+								to those in need. Spearheading this endeavor is our asset
+								manager, Brian Demorcy. With over 8 years of expertise in
+								building software technology, he has seamlessly transitioned
+								into the world of real estate investment, a legacy passed down
+								from his father. Collaborating with dedicated business partners,
+								Brian has cultivated opportunities into a shining success story
+								over the years.
+							</p>
+							<p className='text-white'>
+								While we're still young, our growth is rapid and purposeful.
+								We're committed to expanding our reach to meet a wider array of
+								needs within communities. Today, our company thrives on more
+								than just profits; it thrives on uplifting neighborhoods that
+								require assistance. We recognize that real estate holds the
+								power to transform lives, and we're committed to utilizing our
+								resources to catalyze positive change.
+							</p>
+							<p className='text-white'>
+								What sets us apart is our embrace of technology. Unlike
+								traditional methods, we leverage cutting-edge technology to
+								enhance our ability to thrive in the markets we pour our efforts
+								into. From data-driven insights to streamlined processes, we
+								harness innovation to maximize impact. Join us on our journey as
+								we blend financial insight with a humanitarian spirit, utilizing
+								technology to create lasting change in the lives of those we
+								serve.
+							</p>
+						</div>
+					</div>
+					<div
+						className='w-full h-full relative overflow-hidden bg-cover bg-no-repeat order-0 md:order-1'
+						style={{
+							minHeight: '500px',
+							backgroundImage: `url(${'https://imagedelivery.net/s-Qoq_uGoAvrpxHuBogfVA/c3382fe8-5d06-4b59-0d69-202cf219f700/public'})`,
+						}}></div>
+				</Section>
 			</div>
-			<Modals />
-		</>
 	);
 }
