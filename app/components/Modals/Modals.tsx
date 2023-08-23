@@ -2,6 +2,7 @@ import { Fragment, type ReactNode } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { ENUM_DIALOGS } from '~/libs/conts';
 import { useStore } from '~/utils/zustand/store';
+import LeadForm from '../Forms/SellerLeadForm';
 
 export default function Modals() {
 	const { modal: dialog, onChange } = useStore((store) => store.entries.modal);
@@ -9,27 +10,15 @@ export default function Modals() {
 
 	const mapDialogs: Record<string, ReactNode> = {
 		'seller-form': (
-			<Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
-				<Dialog.Title
-					as='h3'
-					className='text-lg font-medium leading-6 text-gray-900'>
-					Payment successful
+			<Dialog.Panel
+				className='w-full h-full sm:h-auto sm:w-auto max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all grid grid-cols-1 gap-6'
+				style={{
+					minWidth: '350px',
+				}}>
+				<Dialog.Title as='h3' className='font-bold'>
+					Let's Get Started!
 				</Dialog.Title>
-				<div className='mt-2'>
-					<p className='text-sm text-gray-500'>
-						Your payment has been successfully submitted. We’ve sent you an
-						email with all of the details of your order.
-					</p>
-				</div>
-
-				<div className='mt-4'>
-					<button
-						type='button'
-						className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'
-						onClick={() => onChange('')}>
-						Got it, thanks!
-					</button>
-				</div>
+				<LeadForm />
 			</Dialog.Panel>
 		),
 	};
@@ -43,7 +32,7 @@ export default function Modals() {
 				)
 			)}
 			as={Fragment}>
-			<Dialog as='div' className='relative z-10' onClose={() => onChange('')}>
+			<Dialog as='div' className='relative z-50' onClose={() => onChange('')}>
 				<Transition.Child
 					as={Fragment}
 					enter='ease-out duration-300'
@@ -56,7 +45,7 @@ export default function Modals() {
 				</Transition.Child>
 
 				<div className='fixed inset-0 overflow-y-auto'>
-					<div className='flex min-h-full items-center justify-center p-4 text-center'>
+					<div className='flex min-h-full items-center justify-center p-4 text-center bg-dark/75'>
 						<Transition.Child
 							as={Fragment}
 							enter='ease-out duration-300'
@@ -73,3 +62,4 @@ export default function Modals() {
 		</Transition>
 	) : null;
 }
+

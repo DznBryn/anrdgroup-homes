@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { LinksFunction } from '@remix-run/cloudflare';
+import type { ActionArgs, LinksFunction } from '@remix-run/cloudflare';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import tailwindStylesheet from '~/styles/tailwind.css';
 
@@ -13,12 +13,24 @@ import {
 } from '@remix-run/react';
 import Modals from './components/Modals/Modals';
 import Layout from './components/Layouts/Layout';
-
+import { createProfile } from './utils/api/klaviyo/profile';
 
 export const links: LinksFunction = () => [
 	...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 	{ rel: 'stylesheet', href: tailwindStylesheet },
 ];
+
+export async function action({ request, context }: ActionArgs) {
+	try {
+		const [formData] = await Promise.all([request.formData()]);
+		formData.forEach((item) => console.log(item));
+		const response = await createProfile({ data: formData, context });
+
+		return response.data;
+	} catch (error) {
+		return { error };
+	}
+}
 
 
 export default function App() {

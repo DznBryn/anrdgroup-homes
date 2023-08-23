@@ -45,7 +45,7 @@ export const PROCESSES: Array<ProcessCardProps> = [
 		content:
 			'Crafting the perfect buying price involves analyzing key factors: property condition, comparable sales, location advantages, size, layout, upgrades, local trends, and market conditions. We factor in historical sales, regulations, and appraisal insights. With a keen eye on repair costs, we ensure a close to accurate valuation, guiding you toward informed decisions and maximizing value for both parties.',
 		button: (
-			<Button classNames='px-12'>
+			<Button modal={'seller-form'} classNames='px-12'>
 				<span>submit details</span>
 			</Button>
 		),
@@ -62,7 +62,7 @@ export const PROCESSES: Array<ProcessCardProps> = [
 		content:
 			"After discovering your property's potential with our thorough analysis. We collect crucial property details and employ advanced methods to pinpoint precise comparables, calculate the After Repair Value (ARV), and determine the Maximum Allowable Offer (MAO). Get informed, make confident decisions, and unlock your property's true value with us.",
 		button: (
-			<Button classNames='px-12'>
+			<Button modal={'seller-form'} classNames='px-12'>
 				<span>get an offer</span>
 			</Button>
 		),
@@ -79,7 +79,7 @@ export const PROCESSES: Array<ProcessCardProps> = [
 		content:
 			'Once the numbers align and our agreement is signed, the journey smoothly transitions to the next phase. We collaborate with a trusted title company to ensure a seamless transfer. Within a timeframe of just 15-30 days, your home sale is completed, delivering the swift, hassle-free outcome you deserve.',
 		button: (
-			<Button classNames='px-12'>
+			<Button modal={'seller-form'} classNames='px-12'>
 				<span>get your money</span>
 			</Button>
 		),
