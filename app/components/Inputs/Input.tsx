@@ -1,20 +1,20 @@
-import type { HTMLInputTypeAttribute } from "react";
+import type { HTMLInputTypeAttribute } from 'react';
+import React from 'react';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+	extends React.InputHTMLAttributes<HTMLInputElement> {
 	type: HTMLInputTypeAttribute | undefined;
 	name: string;
 	placeholder?: string;
 }
 
-export function Input({
-	type,
-	name,
-	placeholder,
-	className,
-	...props
-}: InputProps) {
+export default React.forwardRef(function Input(
+	{ type, name, placeholder, className, ...props }: InputProps,
+	ref: React.Ref<HTMLInputElement>
+) {
 	return (
 		<input
+			ref={ref}
 			type={type}
 			name={name}
 			placeholder={placeholder}
@@ -22,4 +22,4 @@ export function Input({
 			{...props}
 		/>
 	);
-}
+});

@@ -15,10 +15,7 @@ export default function Modals() {
 				style={{
 					minWidth: '350px',
 				}}>
-				<Dialog.Title as='h3' className='font-bold'>
-					Let's Get Started!
-				</Dialog.Title>
-				<LeadForm />
+				<LeadForm  />
 			</Dialog.Panel>
 		),
 	};

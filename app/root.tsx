@@ -23,7 +23,7 @@ export const links: LinksFunction = () => [
 export async function action({ request, context }: ActionArgs) {
 	try {
 		const [formData] = await Promise.all([request.formData()]);
-		formData.forEach((item) => console.log(item));
+
 		const response = await createProfile({ data: formData, context });
 
 		return response.data;
