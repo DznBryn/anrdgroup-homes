@@ -139,17 +139,15 @@ export default function Index() {
 					<h3 className='font-bold text-white'>Our story</h3>
 					<div className='w-full h-auto grid grid-cols-1 gap-6'>
 						<p className='text-white'>
-							At <span className='font-bold'>ANRD Group Inc</span>, we're not
-							just an investment group – we're a compassionate force driven by
-							the desire to make a difference when it matters most. Our mission
-							is clear: seize opportunities to extend a helping hand to those in
-							need. Spearheading this endeavor is our asset manager, Brian
-							Demorcy. With over 8 years of expertise in building software
-							technology, he has seamlessly transitioned into the world of real
-							estate investment, a legacy passed down from his father.
-							Collaborating with dedicated business partners, Brian has
-							cultivated opportunities into a shining success story over the
-							years.
+							At <span className='font-bold'>ANRD Group Inc</span>, we are more
+							than just an investment group – we are a compassionate force
+							driven by the desire to make a difference when it matters most.
+							Our mission is clear: seize opportunities to extend a helping hand
+							to those in need. With over 8 years of expertise in building
+							software technology, our asset management team has seamlessly
+							transitioned into the world of real estate investment.
+							Collaborating with dedicated business partners, we have cultivated
+							opportunities into a shining success story over the years.
 						</p>
 						<p className='text-white'>
 							While we're still young, our growth is rapid and purposeful. We're
