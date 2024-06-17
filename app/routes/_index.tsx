@@ -1,4 +1,5 @@
-import type { V2_MetaFunction } from '@remix-run/cloudflare';
+import type { ActionFunction, LoaderFunction, V2_MetaFunction } from '@remix-run/cloudflare';
+import DEV_ENV from 'env';
 import Banner from '~/components/Banners/Banner';
 import Button from '~/components/Buttons/Button';
 import Section from '~/components/Section/Section';
@@ -23,6 +24,19 @@ export const meta: V2_MetaFunction = () => {
 	];
 };
 
+export const action: ActionFunction = async ({ request, context }) => {
+
+}
+
+export const loader: LoaderFunction = async ({ request, context }) => {
+	console.log('...Loader Parent', {
+		DEV_ENV
+	
+	});
+	return {
+		status: 200,
+	};
+}
 
 export default function Index() {
 	console.log('...Render Parent');

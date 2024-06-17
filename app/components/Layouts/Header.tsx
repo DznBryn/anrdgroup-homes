@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhone, faMessage } from '@fortawesome/free-solid-svg-icons';
 import DropDown, { DropDownItem } from '../DropDown/DropDown';
 
-type Props = {};
+interface Props {
+	pathname: string | null;
+};
 
-export default function Header({}: Props) {
+export default function Header({pathname}: Props) {
 	return (
 		<div className='w-full md:w-1/2 h-auto p-6 flex justify-between items-center absolute z-50'>
 			<div className='w-full h-auto grid grid-cols-2 gap-x-6'>

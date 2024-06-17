@@ -68,7 +68,7 @@
 
 @layer base {
 	html{
-		@apply bg-dark
+		@apply bg-white
 	}
 	body{
 		@apply bg-white

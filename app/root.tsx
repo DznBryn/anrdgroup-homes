@@ -25,7 +25,6 @@ export async function action({ request, context }: ActionArgs) {
 		const [formData] = await Promise.all([request.formData()]);
 
 		const response = await createProfile({ data: formData, context });
-
 		return response.data;
 	} catch (error) {
 		return { error };
@@ -58,7 +57,7 @@ function Document({ children }: DocumentProps) {
 					content='width=device-width,initial-scale=1.0'></meta>
 				<Links />
 			</head>
-			<body>
+			<body className='w-full h-screen grid grid-cols-1'>
 				{children}
 				<ScrollRestoration />
 				<Scripts />
