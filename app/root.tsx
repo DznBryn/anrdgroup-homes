@@ -1,5 +1,9 @@
 import type { ReactNode } from 'react';
-import type { ActionArgs, LinksFunction } from '@remix-run/cloudflare';
+import type {
+	ActionArgs,
+	LinksFunction,
+	LoaderArgs,
+} from '@remix-run/cloudflare';
 import { cssBundleHref } from '@remix-run/css-bundle';
 import tailwindStylesheet from '~/styles/tailwind.css';
 
@@ -10,6 +14,7 @@ import {
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useLoaderData,
 } from '@remix-run/react';
 import Modals from './components/Modals/Modals';
 import Layout from './components/Layouts/Layout';
@@ -30,6 +35,19 @@ export async function action({ request, context }: ActionArgs) {
 		const [formData] = await Promise.all([request.formData()]);
 
 		const newCustomerEmail = formData.get('email');
+		const newCustomerState = formData.get('state');
+
+		if (newCustomerState === '') {
+			return {
+				data: null,
+				errors: [
+					{
+						status: 400,
+						message: 'Please provide vaild State.',
+					},
+				],
+			};
+		}
 
 		const profiles: {
 			data: Array<GetProfileProps> | undefined;
@@ -40,20 +58,38 @@ export async function action({ request, context }: ActionArgs) {
 			context,
 		})) as { data: Array<GetProfileProps> | undefined };
 
-		console.log('================>>>', context.env.KLAVIYO_TEST_API_KEY);
-		console.log('================>>>', profiles);
+		console.log('GET PROFILES:', profiles);
+
 		if (profiles.data && profiles.data.length === 0) {
 			const response = await createProfile({ data: formData, context });
-			return { data: response };
+			if (response?.errors && response.errors.length > 0) {
+				console.log('UPDATE PROFILE ERRORS:', response.errors);
+				return {
+					data: null,
+					errors: response.errors.map((error) => {
+						return {
+							status: error?.status ?? 400,
+							message:
+								error?.detail ??
+								'Oops! Something went wrong. Please email us at hello@anrd.app',
+						};
+					}),
+				};
+			}
+
+			return { data: response, errors: [] };
 		}
 
 		if (profiles.data && profiles.data.length > 0) {
+			const phone_number = String(
+				formData?.get('phone') ? '+1' + formData.get('phone') : ''
+			)?.replace('-', '');
 			const updateProfileData: UpdateProfileInputProps = {
 				id: profiles.data[0].id,
 				type: 'profile',
 				attributes: {
 					email: profiles.data[0].attributes.email,
-					phone_number: profiles.data[0].attributes.phone_number,
+					phone_number,
 					first_name: profiles.data[0].attributes.first_name,
 					last_name: profiles.data[0].attributes.last_name,
 					organization: profiles.data[0].attributes.organization,
@@ -70,19 +106,42 @@ export async function action({ request, context }: ActionArgs) {
 					},
 				},
 			};
-			console.log('updateProfileData', formData);
-			const updates: { data: any } = await updateProfile({
+
+			const updates: { data: any; errors?: [] } = (await updateProfile({
 				data: updateProfileData,
 				context,
-			}) as { data: any };
+			})) as { data: any; errors?: [] };
 
-			return { data: formData };
+			if (updates?.errors && updates.errors.length > 0) {
+				console.log('UPDATE PROFILE ERRORS:', updates.errors);
+				return {
+					data: null,
+					errors: updates.errors.map((error) => {
+						return {
+							status: error?.status ?? 400,
+							message:
+								error?.detail ??
+								'Oops! Something went wrong. Please email us at hello@anrd.app',
+						};
+					}),
+				};
+			}
+
+			return { data: updates.data, errors: [] };
 		}
 
 		return { data: profiles.data };
 	} catch (error) {
 		return { error };
 	}
+}
+
+export async function loader({ request, context }: LoaderArgs) {
+	const { env } = context;
+	const klaviyoSiteId = env?.KLAVIYO_SITE_ID ?? null;
+	return {
+		klaviyoSiteId,
+	};
 }
 
 export default function App() {
@@ -101,6 +160,8 @@ type DocumentProps = {
 };
 
 function Document({ children }: DocumentProps) {
+	const loaderData = useLoaderData();
+	console.log('loaderData', loaderData.klaviyoSiteId);
 	return (
 		<html lang='en'>
 			<head>
@@ -116,7 +177,7 @@ function Document({ children }: DocumentProps) {
 				<Scripts />
 				<script
 					type='text/javascript'
-					src='//static.klaviyo.com/onsite/js/klaviyo.js?company_id=VB6Uwr'></script>
+					src={`//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${loaderData.klaviyoSiteId}`}></script>
 				<LiveReload />
 			</body>
 		</html>

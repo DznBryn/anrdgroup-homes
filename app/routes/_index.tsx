@@ -24,7 +24,6 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const action: ActionFunction = async ({ request, context }) => {
-	console.log('...Action Parent');
  return {
 	data: 'Hello World!',
  }
@@ -37,7 +36,6 @@ export const loader: LoaderFunction = async ({ request, context }) => {
 }
 
 export default function Index() {
-	console.log('...Render Parent');
 	return (
 		<div className='w-full h-auto grid grid-cols-1 gap-12'>
 			<Banner

@@ -2,7 +2,7 @@ import Icons from '~/components/Icons/Icons';
 import type { ProcessCardProps, SituationProps } from './type';
 import Button from '~/components/Buttons/Button';
 
-export const ENUM_DIALOGS: Array<string> = ['seller-form'];
+export const ENUM_DIALOGS: Array<string> = ['seller-form', 'seller-full-form'];
 
 export const SITUATIONS: Array<SituationProps> = [
 	{
@@ -142,5 +142,4 @@ export const US_STATES = [
 export const KLAVIYO_API = {
 	PROFILES: 'https://a.klaviyo.com/api/profiles/',
 	SUBSCRIBE: 'https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/',
-	SELLER_LIST: 'WPW4St',
 };

@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { ENUM_DIALOGS } from '~/libs/conts';
 import { useStore } from '~/utils/zustand/store';
 import LeadForm from '../Forms/SellerLeadForm';
+import FullSellerLeadForm from '../Forms/FullSellerLeadForm';
 
 export default function Modals() {
 	const { modal: dialog, onChange } = useStore((store) => store.entries.modal);
@@ -15,7 +16,16 @@ export default function Modals() {
 				style={{
 					minWidth: '350px',
 				}}>
-				<LeadForm  />
+				<LeadForm />
+			</Dialog.Panel>
+		),
+		'seller-full-form': (
+			<Dialog.Panel
+				className='w-full h-full sm:h-auto sm:w-auto max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all grid grid-cols-1 gap-6'
+				style={{
+					minWidth: '350px',
+				}}>
+				<FullSellerLeadForm />
 			</Dialog.Panel>
 		),
 	};

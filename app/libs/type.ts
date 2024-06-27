@@ -1,9 +1,26 @@
+import type { AppLoadContext } from "@remix-run/cloudflare";
 import type { ReactNode } from "react";
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
+export interface CONTEXT_PROPS extends AppLoadContext {
+  env?: ENV_PROPS
+}
+
+export declare interface ENV_PROPS {
+  KLAVIYO_TEST_API_KEY?: string
+  KLAVIYO_API_VERSION?: string
+  KLAVIYO_SELLER_LIST?: string
+  KLAVIYO_SITE_ID?: string
+}
+
 export declare interface ModalProps {
-  modal: 'seller-form' | string;
+  modal: 'seller-form' | 'seller-full-form' | string;
   onChange: (string: string) => void;
+}
+
+export declare interface FormProps {
+  user: object | null;
+  onUserChange: (user: object) => void;
 }
 
 export declare interface SectionProps {

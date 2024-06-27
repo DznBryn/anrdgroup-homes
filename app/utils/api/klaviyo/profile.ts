@@ -1,21 +1,14 @@
-import type { AppLoadContext } from "@remix-run/cloudflare";
+
 import { KLAVIYO_API } from "~/libs/conts";
-import type { CreateProfileInputProps, CreateProfileOutputProps, SubscribeProfileProps, UpdateProfileInputProps } from "~/libs/type";
+import type { CONTEXT_PROPS, CreateProfileInputProps, CreateProfileOutputProps, SubscribeProfileProps, UpdateProfileInputProps } from "~/libs/type";
 
 interface Props {
   data?: FormData
   context: CONTEXT_PROPS
 }
-interface CONTEXT_PROPS extends AppLoadContext {
-  env?: ENV_PROPS
-}
-interface ENV_PROPS {
-  KLAVIYO_TEST_API_KEY?: string
-  KLAVIYO_API_VERSION?: string
-}
 
 export function getKlaviyoHeaders({ context }: Props) {
-  console.log('CONTEXT===>>', context)
+
   return {
     accept: 'application/json',
     revision: context.env?.KLAVIYO_API_VERSION,
@@ -55,7 +48,7 @@ export async function createProfile({ data, context }: Props) {
 
   const options = {
     method: 'POST',
-    headers: getKlaviyoHeaders({ context }),
+    headers: getKlaviyoHeaders({ context }) as HeadersInit,
     body,
   };
 
@@ -64,7 +57,7 @@ export async function createProfile({ data, context }: Props) {
     const res: {
       data?: CreateProfileOutputProps
     } = await response.json()
-    console.log('CREATE===>>', res)
+
     if (res?.data?.id) {
       const subscribe: SubscribeProfileProps = {
         type: 'profile-subscription-bulk-create-job',
@@ -87,7 +80,7 @@ export async function createProfile({ data, context }: Props) {
                     sms: {
                       marketing: {
                         consent: 'SUBSCRIBED',
-                        
+
                       }
                     }
                   }
@@ -96,12 +89,14 @@ export async function createProfile({ data, context }: Props) {
             ]
           }
         },
-        relationships: { list: { data: { type: 'list', id: KLAVIYO_API.SELLER_LIST } } }
+        relationships: { list: { data: { type: 'list', id: context.env?.KLAVIYO_SELLER_LIST as string } } }
       }
-     
+
       const subscribed = await subscribeProfile({ data: subscribe, context })
-      console.log('SUBSCRIBED===>>', subscribed)
-      return subscribed
+      
+      if (subscribed?.errors) return subscribed
+      
+      return res
     }
     return res
   } catch (error) {
@@ -111,7 +106,7 @@ export async function createProfile({ data, context }: Props) {
   }
 }
 
-export async function updateProfile({data, context}: {
+export async function updateProfile({ data, context }: {
   data: UpdateProfileInputProps,
   context: CONTEXT_PROPS
 }) {
@@ -121,14 +116,14 @@ export async function updateProfile({data, context}: {
   })
   const options = {
     method: 'PATCH',
-    headers: getKlaviyoHeaders({ context }),
+    headers: getKlaviyoHeaders({ context }) as HeadersInit,
     body,
   };
 
   try {
     const response = await fetch(url, options)
     const res = await response.json()
-    console.log('UPDATE===>>', res.data.attributes.properties)
+   
     return res
   } catch (error) {
     return {
@@ -149,7 +144,7 @@ export async function subscribeProfile({ data, context }: SubscribeProps) {
   })
   const options = {
     method: 'POST',
-    headers: getKlaviyoHeaders({ context }),
+    headers: getKlaviyoHeaders({ context }) as HeadersInit,
     body,
   };
 
@@ -167,12 +162,13 @@ export async function subscribeProfile({ data, context }: SubscribeProps) {
 interface GetProfilesProps extends Props {
   filters?: string | null
 }
+
 export async function getProfiles({ filters, context }: GetProfilesProps) {
   const filter = filters ? `?${filters}` : '';
   const url = `${KLAVIYO_API.PROFILES}${filter}`;
   const options = {
     method: 'GET',
-    headers: getKlaviyoHeaders({ context }),
+    headers: getKlaviyoHeaders({ context }) as HeadersInit,
   };
 
   try {

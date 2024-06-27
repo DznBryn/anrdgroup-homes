@@ -1,9 +1,10 @@
 import { create } from "zustand";
-import type { ModalProps } from "~/libs/type";
+import type { FormProps, ModalProps } from "~/libs/type";
 
 type Props = {
   entries: {
     modal: ModalProps
+    form: FormProps
   };
 };
 
@@ -15,6 +16,7 @@ const store = (set: (fn: (state: Props) => Props) => void) => ({
         set((state: Props) => {
           return {
             entries: {
+              ...state.entries,
               modal: {
                 ...state.entries.modal,
                 modal,
@@ -23,6 +25,22 @@ const store = (set: (fn: (state: Props) => Props) => void) => ({
           }
         });
       },
+    },
+    form: {
+      user: null,
+      onUserChange (user: object | null) {
+        set((state: Props) => {
+          return {
+            entries: {
+              ...state.entries,
+              form: {
+                ...state.entries.form,
+                user,
+              },
+            },
+          }
+        });
+      }
     }
   }
 });
