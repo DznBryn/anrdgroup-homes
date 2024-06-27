@@ -1,5 +1,6 @@
 import type { AppLoadContext } from "@remix-run/cloudflare";
 import { KLAVIYO_API } from "~/libs/conts";
+import type { CreateProfileInputProps, CreateProfileOutputProps, SubscribeProfileProps, UpdateProfileInputProps } from "~/libs/type";
 
 interface Props {
   data?: FormData
@@ -13,29 +14,20 @@ interface ENV_PROPS {
   KLAVIYO_API_VERSION?: string
 }
 
-type ProfileProps = {
-  type: Object,
-  id: string,
-  attributes: {
-    email: string,
-    phone_number: string,
-
-  },
-  relationships: Object,
-  links: Object
-}
 export function getKlaviyoHeaders({ context }: Props) {
+  console.log('CONTEXT===>>', context)
   return {
     accept: 'application/json',
-    revision: context.env?.KLAVIYO_API_VERSION ?? '2023-08-15',
+    revision: context.env?.KLAVIYO_API_VERSION,
     'content-type': 'application/json',
-    Authorization: `Klaviyo-API-Key ${context.env?.KLAVIYO_TEST_API_KEY ?? 'pk_26edc3b29d54274c1756935a540e6e119f'}`,
+    Authorization: `Klaviyo-API-Key ${context.env?.KLAVIYO_TEST_API_KEY}`,
   }
 }
 
 export async function createProfile({ data, context }: Props) {
   const url = KLAVIYO_API.PROFILES;
   const phone_number = String(data?.get('phone') ? '+1' + data.get('phone') : '')?.replace('-', '')
+  const property = `${data?.get('address')}, ${data?.get('city')}, ${data?.get('state')}, ${data?.get('zip')}`
   const body = JSON.stringify({
     data: {
       type: 'profile',
@@ -56,10 +48,11 @@ export async function createProfile({ data, context }: Props) {
           zip: data?.get('zip') ?? '',
           timezone: '',
         },
-        properties: { property_address: data?.get('address') ?? '' },
+        properties: { property_address: data?.get('address') ? property : '' },
       },
-    },
+    } as CreateProfileInputProps,
   })
+
   const options = {
     method: 'POST',
     headers: getKlaviyoHeaders({ context }),
@@ -69,12 +62,46 @@ export async function createProfile({ data, context }: Props) {
   try {
     const response = await fetch(url, options)
     const res: {
-      data?: ProfileProps
+      data?: CreateProfileOutputProps
     } = await response.json()
+    console.log('CREATE===>>', res)
     if (res?.data?.id) {
-      const subscribe = await subscribeProfile({ data: res.data, context })
-      console.log('subscribe', subscribe?.errors[0])
-      return res
+      const subscribe: SubscribeProfileProps = {
+        type: 'profile-subscription-bulk-create-job',
+        attributes: {
+          custom_source: 'Marketing Event',
+          profiles: {
+            data: [
+              {
+                type: 'profile',
+                id: res.data.id,
+                attributes: {
+                  email: res.data.attributes.email,
+                  phone_number: res.data.attributes.phone_number,
+                  subscriptions: {
+                    email: {
+                      marketing: {
+                        consent: 'SUBSCRIBED'
+                      }
+                    },
+                    sms: {
+                      marketing: {
+                        consent: 'SUBSCRIBED',
+                        
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        relationships: { list: { data: { type: 'list', id: KLAVIYO_API.SELLER_LIST } } }
+      }
+     
+      const subscribed = await subscribeProfile({ data: subscribe, context })
+      console.log('SUBSCRIBED===>>', subscribed)
+      return subscribed
     }
     return res
   } catch (error) {
@@ -84,93 +111,70 @@ export async function createProfile({ data, context }: Props) {
   }
 }
 
+export async function updateProfile({data, context}: {
+  data: UpdateProfileInputProps,
+  context: CONTEXT_PROPS
+}) {
+  const url = `${KLAVIYO_API.PROFILES}${data.id}`;
+  const body = JSON.stringify({
+    data
+  })
+  const options = {
+    method: 'PATCH',
+    headers: getKlaviyoHeaders({ context }),
+    body,
+  };
+
+  try {
+    const response = await fetch(url, options)
+    const res = await response.json()
+    console.log('UPDATE===>>', res.data.attributes.properties)
+    return res
+  } catch (error) {
+    return {
+      data: error,
+    }
+  }
+
+}
+
 type SubscribeProps = {
-  data: ProfileProps,
+  data: SubscribeProfileProps,
   context: CONTEXT_PROPS
 }
 export async function subscribeProfile({ data, context }: SubscribeProps) {
-  // const url = KLAVIYO_API.SUBSCRIBE;
-  // const body = JSON.stringify({
-  //   data: {
-  //     type: 'profile-subscription-bulk-create-job',
-  //     attributes: {
-  //       custom_source: 'Marketing Event',
-  //       profiles: {
-  //         data: [
-  //           {
-  //             id: data.id,
-  //             attributes: {
-  //               email: data.attributes.email,
-  //               phone_number: data.attributes.phone_number,
-  //               subscriptions: { email: ['MARKETING'], sms: ['MARKETING'] }
-  //             }
-  //           }
-  //         ]
-  //       }
-  //     },
-  //     relationships: { list: { data: { type: 'list', id: KLAVIYO_API.SELLER_LIST } } }
-  //   }
-  // })
-  // const options = {
-  //   method: 'POST',
-  //   headers: getKlaviyoHeaders({ context }),
-  //   body,
-  // };
-  // console.log('SUBSCRIBE===>>', {
-  //   body: {
-  //     type: 'profile-subscription-bulk-create-job',
-  //     attributes: {
-  //       custom_source: 'Marketing Event',
-  //       profiles: {
-  //         data: [
-  //           {
-  //             id: data.id,
-  //             attributes: {
-  //               email: data.attributes.email,
-  //               phone_number: data.attributes.phone_number,
-  //               subscriptions: { email: ['MARKETING'], sms: ['MARKETING'] }
-  //             }
-  //           }
-  //         ]
-  //       }
-  //     }
-  //   }
-  // })
-
-
-
-  const url = 'https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/';
+  const url = KLAVIYO_API.SUBSCRIBE;
+  const body = JSON.stringify({
+    data
+  })
   const options = {
     method: 'POST',
-    headers: {
-      accept: 'application/json',
-      revision: '2023-08-15',
-      'content-type': 'application/json',
-      Authorization: 'Klaviyo-API-Key pk_26edc3b29d54274c1756935a540e6e119f'
-    },
-    body: JSON.stringify({
-      data: {
-        type: 'profile-subscription-bulk-create-job',
-        attributes: {
-          custom_source: 'Marketing Event',
-          profiles: {
-            data: [
-              {
-                type: 'profile',
-                id: data.id,
-                attributes: {
-                  email: 'bryan@debybe.com',
-                  phone_number: '+12014679093',
-                  subscriptions: { email: ['MARKETING'], sms: ['MARKETING'] }
-                }
-              }
-            ]
-          }
-        },
-        relationships: { list: { data: { type: 'list', id: 'TcWxHw' } } }
-      }
-    })
+    headers: getKlaviyoHeaders({ context }),
+    body,
   };
+
+  try {
+    const response = await fetch(url, options)
+    const res = await response.json()
+    return res
+  } catch (error) {
+    return {
+      data: error,
+    }
+  }
+}
+
+interface GetProfilesProps extends Props {
+  filters?: string | null
+}
+export async function getProfiles({ filters, context }: GetProfilesProps) {
+  const filter = filters ? `?${filters}` : '';
+  const url = `${KLAVIYO_API.PROFILES}${filter}`;
+  const options = {
+    method: 'GET',
+    headers: getKlaviyoHeaders({ context }),
+  };
+
   try {
     const response = await fetch(url, options)
     const res = await response.json()

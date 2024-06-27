@@ -1,4 +1,4 @@
-import type { LoaderArgs, V2_MetaFunction } from '@remix-run/cloudflare';
+import type { ActionFunction, LoaderArgs, V2_MetaFunction } from '@remix-run/cloudflare';
 import React from 'react';
 import Section from '~/components/Section/Section';
 
@@ -20,6 +20,13 @@ export const meta: V2_MetaFunction = () => {
 				'Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability.',
 		},
 	];
+};
+
+export const action: ActionFunction = async ({ request, context }) => {
+	console.log('...Action Parent');
+	return {
+		data: 'Hello World!',
+	};
 };
 
 export async function loader(props: LoaderArgs) {

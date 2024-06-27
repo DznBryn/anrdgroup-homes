@@ -24,8 +24,9 @@ export const meta: V2_MetaFunction = () => {
 };
 
 export const action: ActionFunction = async ({ request, context }) => {
+	console.log('...Action Parent');
  return {
-	data: request.formData(),
+	data: 'Hello World!',
  }
 }
 

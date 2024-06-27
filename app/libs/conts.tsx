@@ -142,5 +142,5 @@ export const US_STATES = [
 export const KLAVIYO_API = {
 	PROFILES: 'https://a.klaviyo.com/api/profiles/',
 	SUBSCRIBE: 'https://a.klaviyo.com/api/profile-subscription-bulk-create-jobs/',
-	SELLER_LIST: 'TcWxHw',
+	SELLER_LIST: 'WPW4St',
 };

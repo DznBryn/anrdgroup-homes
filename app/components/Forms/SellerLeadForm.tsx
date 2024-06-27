@@ -16,17 +16,17 @@ export default function LeadForm() {
 	const stateRef = useRef<HTMLSelectElement | null>(null);
 	useEffect(
 		function () {
-			if (fetcher?.data && fetcher.data?.id) {
-				setResponse({
-					data: fetcher.data,
-					errors: [],
-				});
-			} else if (fetcher?.data && fetcher.data?.errors) {
-				setResponse({
-					data: {},
-					errors: fetcher.data.errors,
-				});
-			}
+			// if (fetcher?.data && fetcher.data?.id) {
+			// 	setResponse({
+			// 		data: fetcher.data,
+			// 		errors: [],
+			// 	});
+			// } else if (fetcher?.data && fetcher.data?.errors) {
+			// 	setResponse({
+			// 		data: {},
+			// 		errors: fetcher.data.errors,
+			// 	});
+			// }
 			console.log('SHow Respone', fetcher.data);
 		},
 		[fetcher.state]
@@ -62,7 +62,7 @@ export default function LeadForm() {
 						</Select>
 						<InputPostal
 							type='text'
-							name='Zip'
+							name='zip'
 							placeholder='Zip Code'
 							required
 						/>
