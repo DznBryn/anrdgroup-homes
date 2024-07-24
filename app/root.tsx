@@ -169,6 +169,19 @@ function Document({ children }: DocumentProps) {
 				<meta
 					name='viewport'
 					content='width=device-width,initial-scale=1.0'></meta>
+				<script
+					async
+					src='https://www.googletagmanager.com/gtag/js?id=G-F2RGHYQ3XF'></script>
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `
+						window.dataLayer = window.dataLayer || [];
+						function gtag(){dataLayer.push(arguments);}
+						gtag('js', new Date());
+
+						gtag('config', 'G-F2RGHYQ3XF');`,
+					}}
+				/>
 				<Links />
 			</head>
 			<body className='w-full h-screen grid grid-cols-1'>
