@@ -189,6 +189,7 @@ function Document({ children }: DocumentProps) {
 				<ScrollRestoration />
 				<Scripts />
 				<script
+					defer
 					type='text/javascript'
 					src={`//static.klaviyo.com/onsite/js/klaviyo.js?company_id=${loaderData.klaviyoSiteId}`}></script>
 				<LiveReload />
