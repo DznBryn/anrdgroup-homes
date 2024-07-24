@@ -52,11 +52,11 @@ export const meta: V2_MetaFunction = ({ data }) => {
 		},
 		{
 			name: 'msapplication-TileColor',
-			content: '#262626',
+			content: '#000',
 		},
 		{
 			name: 'theme-color',
-			content: '#262626',
+			content: '#000',
 		},
 	];
 

@@ -37307,11 +37307,11 @@ var meta = ({ data }) => {
     },
     {
       name: "msapplication-TileColor",
-      content: "#262626"
+      content: "#000"
     },
     {
       name: "theme-color",
-      content: "#262626"
+      content: "#000"
     }
   ];
   return data != null && data.meta && metaTags.push(...data.meta), metaTags;
@@ -37675,11 +37675,11 @@ var meta2 = ({ data }) => {
     },
     {
       name: "msapplication-TileColor",
-      content: "#262626"
+      content: "#000"
     },
     {
       name: "theme-color",
-      content: "#262626"
+      content: "#000"
     }
   ];
   return data != null && data.meta && metaTags.push(...data.meta), metaTags;
@@ -37704,7 +37704,7 @@ function Terms() {
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-LZUERFLO.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/robots": { id: "routes/robots", parentId: "root", path: "robots", index: void 0, caseSensitive: void 0, module: "/build/routes/robots-WDRF7KQV.js", imports: void 0, hasAction: false, hasLoader: false, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-V7T23PB4.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "9a270bca", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721808521433 }, url: "/build/manifest-9A270BCA.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-W73KESII.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/robots": { id: "routes/robots", parentId: "root", path: "robots", index: void 0, caseSensitive: void 0, module: "/build/routes/robots-WDRF7KQV.js", imports: void 0, hasAction: false, hasLoader: false, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-UXZ42UPU.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "9158267c", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721808722791 }, url: "/build/manifest-9158267C.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
