@@ -37229,7 +37229,7 @@ var meta = ({ data }) => {
   let metaTags = [
     { charset: "utf-8" },
     {
-      title: "ANRD Homes Real Estate"
+      title: "ANRD Homes"
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "anrdhomes.com" },
@@ -37254,6 +37254,7 @@ var action2 = async ({ request, context }) => ({
 var loader2 = async ({ request, context }) => (0, import_cloudflare2.json)({
   status: 200,
   meta: [
+    { tagName: "link", rel: "og:canonical", href: request.url },
     { tagName: "link", rel: "canonical", href: request.url }
   ]
 });
@@ -37269,7 +37270,7 @@ function Index() {
         children: /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "h-full w-full relative flex justify-center items-center md:w-1/2", children: [
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "bg-dark h-full w-full mix-blend-multiply absolute" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 71,
+            lineNumber: 72,
             columnNumber: 6
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-auto max-w-2xl md:max-w-lg	h-auto absolute grid gap-3 md:gap-8 p-8 py-12 top-14 md:top-auto", children: [
@@ -37277,52 +37278,52 @@ function Index() {
               "Selling",
               /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("br", {}, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 75,
+                lineNumber: 76,
                 columnNumber: 8
               }, this),
               "Your Home",
               /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("br", {}, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 77,
+                lineNumber: 78,
                 columnNumber: 8
               }, this),
               "Made Simple:"
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 73,
+              lineNumber: 74,
               columnNumber: 7
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("h3", { className: "text-white", children: "Get Professional Help Today" }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 80,
+              lineNumber: 81,
               columnNumber: 7
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("p", { className: "text-white", children: "Unlock a swift solution for your distressed property with our hassle-free cash purchase service. Whether facing foreclosure, structural issues, or a property in disrepair, we specialize in purchasing homes as-is, removing the burden of repairs and the uncertainty of the market. Receive a fair cash offer and a quick closing, providing you the relief and peace of mind you deserve. Let us turn your distressed property into a stress-free transaction." }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 81,
+              lineNumber: 82,
               columnNumber: 7
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto flex justify-center mt-4 md:mt-8", children: /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)(Button, { modal: "seller-form", classNames: "bg-green", children: /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("span", { children: "get an offer" }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 93,
+              lineNumber: 94,
               columnNumber: 9
             }, this) }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 92,
+              lineNumber: 93,
               columnNumber: 8
             }, this) }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 91,
+              lineNumber: 92,
               columnNumber: 7
             }, this)
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 72,
+            lineNumber: 73,
             columnNumber: 6
           }, this)
         ] }, void 0, true, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 70,
+          lineNumber: 71,
           columnNumber: 5
         }, this)
       },
@@ -37330,7 +37331,7 @@ function Index() {
       false,
       {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 63,
+        lineNumber: 64,
         columnNumber: 4
       },
       this
@@ -37349,39 +37350,39 @@ function Index() {
               ": "
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 108,
+              lineNumber: 109,
               columnNumber: 9
             }, this),
             situation.description
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 107,
+            lineNumber: 108,
             columnNumber: 8
           }, this) }, `situation-${index}`, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 106,
+            lineNumber: 107,
             columnNumber: 7
           }, this)) }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 104,
+            lineNumber: 105,
             columnNumber: 5
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("p", { children: "Let us ease your burden. Our solutions are tailored to your unique situation. Get in touch today." }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 114,
+            lineNumber: 115,
             columnNumber: 5
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto flex justify-center mt-8 md:mt-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)(Button, { modal: "seller-form", classNames: "px-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("span", { children: "sell my property" }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 120,
+            lineNumber: 121,
             columnNumber: 7
           }, this) }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 119,
+            lineNumber: 120,
             columnNumber: 6
           }, this) }, void 0, false, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 118,
+            lineNumber: 119,
             columnNumber: 5
           }, this)
         ]
@@ -37390,7 +37391,7 @@ function Index() {
       true,
       {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 99,
+        lineNumber: 100,
         columnNumber: 4
       },
       this
@@ -37411,28 +37412,28 @@ function Index() {
                 (process2 == null ? void 0 : process2.image) ?? null,
                 process2 != null && process2.header ? /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("h4", { className: "font-bold text-center", children: index + 1 + ". " + process2.header }, void 0, false, {
                   fileName: "app/routes/_index.tsx",
-                  lineNumber: 137,
+                  lineNumber: 138,
                   columnNumber: 10
                 }, this) : null
               ] }, void 0, true, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 134,
+                lineNumber: 135,
                 columnNumber: 8
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto grid grid-cols-1 gap-12", children: [
                 process2 != null && process2.content ? /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("p", { children: process2.content }, void 0, false, {
                   fileName: "app/routes/_index.tsx",
-                  lineNumber: 143,
+                  lineNumber: 144,
                   columnNumber: 29
                 }, this) : null,
                 /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto flex justify-center mt-auto", children: (process2 == null ? void 0 : process2.button) ?? null }, void 0, false, {
                   fileName: "app/routes/_index.tsx",
-                  lineNumber: 144,
+                  lineNumber: 145,
                   columnNumber: 9
                 }, this)
               ] }, void 0, true, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 142,
+                lineNumber: 143,
                 columnNumber: 8
               }, this)
             ]
@@ -37441,13 +37442,13 @@ function Index() {
           true,
           {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 131,
+            lineNumber: 132,
             columnNumber: 7
           },
           this
         )) }, void 0, false, {
           fileName: "app/routes/_index.tsx",
-          lineNumber: 129,
+          lineNumber: 130,
           columnNumber: 5
         }, this)
       },
@@ -37455,7 +37456,7 @@ function Index() {
       false,
       {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 124,
+        lineNumber: 125,
         columnNumber: 4
       },
       this
@@ -37470,7 +37471,7 @@ function Index() {
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto bg-dark p-6 py-12 md:p-12 grid grid-cols-1 gap-6 order-1 md:order-0", children: [
             /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("h3", { className: "font-bold text-white", children: "Our story" }, void 0, false, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 157,
+              lineNumber: 158,
               columnNumber: 6
             }, this),
             /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("div", { className: "w-full h-auto grid grid-cols-1 gap-6", children: [
@@ -37478,33 +37479,33 @@ function Index() {
                 "At ",
                 /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("span", { className: "font-bold", children: "ANRD Group Inc" }, void 0, false, {
                   fileName: "app/routes/_index.tsx",
-                  lineNumber: 160,
+                  lineNumber: 161,
                   columnNumber: 11
                 }, this),
                 ", we are more than just an investment group \u2013 we are a compassionate force driven by the desire to make a difference when it matters most. Our mission is clear: seize opportunities to extend a helping hand to those in need. With over 8 years of expertise in building software technology, our asset management team has seamlessly transitioned into the world of real estate investment. Collaborating with dedicated business partners, we have cultivated opportunities into a shining success story over the years."
               ] }, void 0, true, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 159,
+                lineNumber: 160,
                 columnNumber: 7
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("p", { className: "text-white", children: "While we're still young, our growth is rapid and purposeful. We're committed to expanding our reach to meet a wider array of needs within communities. Today, our company thrives on more than just profits; it thrives on uplifting neighborhoods that require assistance. We recognize that real estate holds the power to transform lives, and we're committed to utilizing our resources to catalyze positive change." }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 170,
+                lineNumber: 171,
                 columnNumber: 7
               }, this),
               /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)("p", { className: "text-white", children: "What sets us apart is our embrace of technology. Unlike traditional methods, we leverage cutting-edge technology to enhance our ability to thrive in the markets we pour our efforts into. From data-driven insights to streamlined processes, we harness innovation to maximize impact. Join us on our journey as we blend financial insight with a humanitarian spirit, utilizing technology to create lasting change in the lives of those we serve." }, void 0, false, {
                 fileName: "app/routes/_index.tsx",
-                lineNumber: 179,
+                lineNumber: 180,
                 columnNumber: 7
               }, this)
             ] }, void 0, true, {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 158,
+              lineNumber: 159,
               columnNumber: 6
             }, this)
           ] }, void 0, true, {
             fileName: "app/routes/_index.tsx",
-            lineNumber: 156,
+            lineNumber: 157,
             columnNumber: 5
           }, this),
           /* @__PURE__ */ (0, import_jsx_dev_runtime19.jsxDEV)(
@@ -37520,7 +37521,7 @@ function Index() {
             false,
             {
               fileName: "app/routes/_index.tsx",
-              lineNumber: 191,
+              lineNumber: 192,
               columnNumber: 5
             },
             this
@@ -37531,14 +37532,14 @@ function Index() {
       true,
       {
         fileName: "app/routes/_index.tsx",
-        lineNumber: 152,
+        lineNumber: 153,
         columnNumber: 4
       },
       this
     )
   ] }, void 0, true, {
     fileName: "app/routes/_index.tsx",
-    lineNumber: 62,
+    lineNumber: 63,
     columnNumber: 3
   }, this);
 }
@@ -37571,22 +37572,23 @@ async function loader3(props) {
   return {
     params: props.params,
     meta: [
+      { tagName: "link", rel: "og:canonical", href: props.request.url },
       { tagName: "link", rel: "canonical", href: props.request.url }
     ]
   };
 }
-function Terms({}) {
+function Terms() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "w-full h-auto grid grid-cols-1 gap-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(Section, { header: "Terms and Conditions for Cash Property Purchase", children: `These Terms and Conditions ("Terms") govern your use of [Your Company's Website] (the "Website") and the services provided by [Your Company Name] (the "Company") for the purchase of properties in cash. By accessing or using this Website and its services, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use the Website or its services. 1. Property Purchase Process 1.1. The Company offers to purchase properties in cash, subject to satisfactory due diligence and agreement on the terms and conditions of the sale. 1.2. The property seller (the "Seller") agrees to provide accurate and complete information about the property, including but not limited to its condition, title, and any known issues. 1.3. The Company reserves the right to withdraw its cash offer at any time if, in its sole discretion, the due diligence process uncovers information that renders the property unsuitable for purchase. 2. Cash Offer 2.1. Upon satisfactory completion of due diligence, the Company will make a cash offer to the Seller. 2.2. The Seller has the right to accept or reject the cash offer. Acceptance of the offer by the Seller will constitute a legally binding agreement to sell the property to the Company. 3. Closing 3.1. The closing of the property sale will occur within a mutually agreed-upon timeframe. 3.2. The Company will provide the necessary funds for the cash purchase at the closing. 4. Representations and Warranties 4.1. The Seller represents and warrants that they have the legal authority to sell the property and that the information provided about the property is accurate and complete. 4.2. The Company represents and warrants that it has the financial capacity to complete the cash purchase. 5. Privacy and Data 5.1. The Company will collect and use personal information in accordance with its Privacy Policy, which can be accessed on the Website. 6. Limitation of Liability 6.1. To the fullest extent permitted by law, the Company shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from or related to the purchase of the property. 7. Governing Law 7.1. These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. 8. Changes to Terms 8.1. The Company reserves the right to modify or update these Terms at any time. Updated Terms will be posted on the Website. 9. Contact Information 9.1. For questions or concerns regarding these Terms, please contact [Your Contact Information]. By using the Website and its services, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.` }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 43,
+    lineNumber: 44,
     columnNumber: 4
   }, this) }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 42,
+    lineNumber: 43,
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-UDA2N6XN.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-LNPTO5UL.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "4185e5d8", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721804779219 }, url: "/build/manifest-4185E5D8.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-KABVXN5K.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-I7L4UT3P.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "9ddfcf1e", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721805269977 }, url: "/build/manifest-9DDFCF1E.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";

@@ -32,12 +32,13 @@ export async function loader(props: LoaderArgs) {
 	return {
 		params: props.params,
 		meta: [
+			{ tagName: 'link', rel: 'og:canonical', href: props.request.url },
 			{ tagName: 'link', rel: 'canonical', href: props.request.url },
 		] satisfies MetaDescriptor[], 
 	};
 }
 
-export default function Terms({}: Props) {
+export default function Terms() {
 	return (
 		<div className='w-full h-auto grid grid-cols-1 gap-12'>
 			<Section header='Terms and Conditions for Cash Property Purchase'>

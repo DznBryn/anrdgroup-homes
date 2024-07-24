@@ -1,6 +1,6 @@
 import {
 	json,
-	MetaDescriptor,
+	type MetaDescriptor,
 	type ActionFunction,
 	type LoaderFunction,
 	type V2_MetaFunction,
@@ -15,7 +15,7 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
 		{
-			title: 'ANRD Homes Real Estate',
+			title: 'ANRD Homes',
 		},
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
@@ -52,6 +52,7 @@ export const loader: LoaderFunction = async ({ request, context }) => {
 	return json({
 		status: 200,
 		meta: [
+			{ tagName: 'link', rel: 'og:canonical', href: request.url },
 			{ tagName: 'link', rel: 'canonical', href: request.url },
 		] satisfies MetaDescriptor[],
 	});
