@@ -15,15 +15,13 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
 		{
-			title:
-				'Selling Your Home Made Easy | ANRD Homes Cash Offers for All Real Estate Properties',
+			title: 'ANRD Homes Real Estate',
 		},
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
 		{
 			property: 'og:title',
-			content:
-				'Selling Your Home Made Easy | ANRD Homes Cash Offers for All Real Estate Properties',
+			content: 'ANRD Homes Real Estate',
 		},
 		{
 			property: 'og:description',
@@ -40,7 +38,7 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	if (data?.meta) {
 		metaTags.push(...data.meta);
 	}
-	
+
 	return metaTags;
 };
 

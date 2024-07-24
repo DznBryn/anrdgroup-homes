@@ -5,10 +5,10 @@ import Section from '~/components/Section/Section';
 export const meta: V2_MetaFunction = ({ data }) => {
 	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
-		{ title: 'ANRD Homes | Terms and Condition' },
+		{ title: 'ANRD Homes Terms and Conditions' },
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
-		{ property: 'og:title', content: 'ANRD Homes | Terms and Condition' },
+		{ property: 'og:title', content: 'ANRD Homes Terms and Conditions' },
 		{
 			property: 'og:description',
 			content:
