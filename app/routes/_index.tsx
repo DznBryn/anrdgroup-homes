@@ -15,11 +15,11 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
 		{
-			title: 'ANRD Home Solutions',
+			title: 'Best Real Estate Home Buyers | ANRD Homes',
 		},
 		{
 			property: 'og:title',
-			content: 'ANRD Home Solutions',
+			content: 'Best Real Estate Home Buyers | ANRD Homes'
 		},
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
