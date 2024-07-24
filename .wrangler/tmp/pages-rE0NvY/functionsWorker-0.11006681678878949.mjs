@@ -3325,12 +3325,12 @@ async function callRouteActionRR({
 }
 async function callRouteLoaderRR({
   loadContext,
-  loader: loader5,
+  loader: loader6,
   params,
   request,
   routeId
 }) {
-  let result = await loader5({
+  let result = await loader6({
     request: stripDataParam(stripIndexParam(request)),
     context: loadContext,
     params
@@ -37195,11 +37195,35 @@ function Document({ children }) {
     columnNumber: 5
   }, this);
 }
-var robots_txt_exports = {};
-__export(robots_txt_exports, {
+var sitemap_xml_exports = {};
+__export(sitemap_xml_exports, {
   loader: () => loader2
 });
 function loader2({ request, context }) {
+  console.log({ request, context });
+  let urls = [
+    `<url>
+      <loc>https://anrdhomes.com/</loc>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>   
+    </url>`
+  ];
+  return new Response(`
+      <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+      ${urls.join("")}
+      <urlset>
+    `, {
+    status: 200,
+    headers: {
+      "Content-Type": "application/xml"
+    }
+  });
+}
+var robots_txt_exports = {};
+__export(robots_txt_exports, {
+  loader: () => loader3
+});
+function loader3({ request, context }) {
   return new Response(`
     User-agent: *
     Disallow: /admin/
@@ -37218,7 +37242,7 @@ var index_exports = {};
 __export(index_exports, {
   action: () => action2,
   default: () => Index,
-  loader: () => loader3,
+  loader: () => loader4,
   meta: () => meta
 });
 var import_cloudflare2 = __toESM(require_dist(), 1);
@@ -37339,7 +37363,7 @@ var meta = ({ data }) => {
 var action2 = async ({ request, context }) => ({
   data: "Hello World!"
 });
-var loader3 = async ({ request, context }) => (0, import_cloudflare2.json)({
+var loader4 = async ({ request, context }) => (0, import_cloudflare2.json)({
   status: 200,
   meta: [
     { tagName: "link", rel: "og:canonical", href: request.url },
@@ -37634,7 +37658,7 @@ function Index() {
 var terms_exports = {};
 __export(terms_exports, {
   default: () => Terms,
-  loader: () => loader4,
+  loader: () => loader5,
   meta: () => meta2
 });
 var import_jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
@@ -37693,7 +37717,7 @@ var meta2 = ({ data }) => {
   ];
   return data != null && data.meta && metaTags.push(...data.meta), metaTags;
 };
-async function loader4(props) {
+async function loader5(props) {
   return {
     params: props.params,
     meta: [
@@ -37713,7 +37737,7 @@ function Terms() {
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-OST57VMB.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-XTGKYFIJ.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-XTNZDZTQ.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-E6YVOYND.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "ebad4002", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721809731827 }, url: "/build/manifest-EBAD4002.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-O66ONPRH.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-EBCKU4G4.js", imports: ["/build/_shared/chunk-2K2KY6YX.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-XTGKYFIJ.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[sitemap.xml]": { id: "routes/[sitemap.xml]", parentId: "root", path: "sitemap.xml", index: void 0, caseSensitive: void 0, module: "/build/routes/[sitemap.xml]-MCEDME5I.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-44EYBKKS.js", imports: ["/build/_shared/chunk-Z2FEQFV2.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-XVOO2JWP.js", imports: ["/build/_shared/chunk-Z2FEQFV2.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "d2491a17", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721810963828 }, url: "/build/manifest-D2491A17.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
@@ -37726,6 +37750,14 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
+  },
+  "routes/[sitemap.xml]": {
+    id: "routes/[sitemap.xml]",
+    parentId: "root",
+    path: "sitemap.xml",
+    index: void 0,
+    caseSensitive: void 0,
+    module: sitemap_xml_exports
   },
   "routes/[robots.txt]": {
     id: "routes/[robots.txt]",
@@ -38228,7 +38260,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-ibLK0e/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-8rlppj/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   ...void 0 ?? [],
   middleware_ensure_req_body_drained_default,
@@ -38258,7 +38290,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// ../.wrangler/tmp/bundle-ibLK0e/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-8rlppj/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
