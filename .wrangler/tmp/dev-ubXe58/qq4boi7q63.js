@@ -3325,12 +3325,12 @@ async function callRouteActionRR({
 }
 async function callRouteLoaderRR({
   loadContext,
-  loader: loader4,
+  loader: loader5,
   params,
   request,
   routeId
 }) {
-  let result = await loader4({
+  let result = await loader5({
     request: stripDataParam(stripIndexParam(request)),
     context: loadContext,
     params
@@ -37194,11 +37194,30 @@ function Document({ children }) {
     columnNumber: 5
   }, this);
 }
+var robots_txt_exports = {};
+__export(robots_txt_exports, {
+  loader: () => loader2
+});
+function loader2({ request, context }) {
+  return new Response(`
+    User-agent: *
+    Disallow: /admin/
+    Disallow: /login/
+    Allow: /
+
+    Sitemap: https://anrdhomes.com/sitemap.xml
+    `, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain"
+    }
+  });
+}
 var index_exports = {};
 __export(index_exports, {
   action: () => action2,
   default: () => Index,
-  loader: () => loader2,
+  loader: () => loader3,
   meta: () => meta
 });
 var import_cloudflare2 = __toESM(require_dist(), 1);
@@ -37319,7 +37338,7 @@ var meta = ({ data }) => {
 var action2 = async ({ request, context }) => ({
   data: "Hello World!"
 });
-var loader2 = async ({ request, context }) => (0, import_cloudflare2.json)({
+var loader3 = async ({ request, context }) => (0, import_cloudflare2.json)({
   status: 200,
   meta: [
     { tagName: "link", rel: "og:canonical", href: request.url },
@@ -37611,21 +37630,10 @@ function Index() {
     columnNumber: 3
   }, this);
 }
-var robots_exports = {};
-__export(robots_exports, {
-  default: () => robots_default
-});
-var robots_default = `User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Allow: /
-
-Sitemap: https://anrdhomes.com/sitemap.xml
-`;
 var terms_exports = {};
 __export(terms_exports, {
   default: () => Terms,
-  loader: () => loader3,
+  loader: () => loader4,
   meta: () => meta2
 });
 var import_jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
@@ -37684,7 +37692,7 @@ var meta2 = ({ data }) => {
   ];
   return data != null && data.meta && metaTags.push(...data.meta), metaTags;
 };
-async function loader3(props) {
+async function loader4(props) {
   return {
     params: props.params,
     meta: [
@@ -37704,7 +37712,7 @@ function Terms() {
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-563G2R45.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/robots": { id: "routes/robots", parentId: "root", path: "robots", index: void 0, caseSensitive: void 0, module: "/build/routes/robots-WDRF7KQV.js", imports: void 0, hasAction: false, hasLoader: false, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-62DQTMJU.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "44ebd0b6", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721808944794 }, url: "/build/manifest-44EBD0B6.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-XTGKYFIJ.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-563G2R45.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-62DQTMJU.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "d767cfa6", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721809260625 }, url: "/build/manifest-D767CFA6.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
@@ -37718,6 +37726,14 @@ var routes = {
     caseSensitive: void 0,
     module: root_exports
   },
+  "routes/[robots.txt]": {
+    id: "routes/[robots.txt]",
+    parentId: "root",
+    path: "robots.txt",
+    index: void 0,
+    caseSensitive: void 0,
+    module: robots_txt_exports
+  },
   "routes/_index": {
     id: "routes/_index",
     parentId: "root",
@@ -37725,14 +37741,6 @@ var routes = {
     index: true,
     caseSensitive: void 0,
     module: index_exports
-  },
-  "routes/robots": {
-    id: "routes/robots",
-    parentId: "root",
-    path: "robots",
-    index: void 0,
-    caseSensitive: void 0,
-    module: robots_exports
   },
   "routes/terms": {
     id: "routes/terms",
