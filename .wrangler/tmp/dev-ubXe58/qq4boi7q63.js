@@ -37611,6 +37611,17 @@ function Index() {
     columnNumber: 3
   }, this);
 }
+var robots_exports = {};
+__export(robots_exports, {
+  default: () => robots_default
+});
+var robots_default = `User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Allow: /
+
+Sitemap: https://anrdhomes.com/sitemap.xml
+`;
 var terms_exports = {};
 __export(terms_exports, {
   default: () => Terms,
@@ -37693,7 +37704,7 @@ function Terms() {
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KLMOPAZH.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-OCIEVNYM.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-IWKNO6ON.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "a0f23e61", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721807893474 }, url: "/build/manifest-A0F23E61.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-LZUERFLO.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/robots": { id: "routes/robots", parentId: "root", path: "robots", index: void 0, caseSensitive: void 0, module: "/build/routes/robots-WDRF7KQV.js", imports: void 0, hasAction: false, hasLoader: false, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-V7T23PB4.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "9a270bca", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721808521433 }, url: "/build/manifest-9A270BCA.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
@@ -37714,6 +37725,14 @@ var routes = {
     index: true,
     caseSensitive: void 0,
     module: index_exports
+  },
+  "routes/robots": {
+    id: "routes/robots",
+    parentId: "root",
+    path: "robots",
+    index: void 0,
+    caseSensitive: void 0,
+    module: robots_exports
   },
   "routes/terms": {
     id: "routes/terms",
