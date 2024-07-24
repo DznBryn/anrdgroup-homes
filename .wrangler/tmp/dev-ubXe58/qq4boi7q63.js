@@ -37284,11 +37284,11 @@ var meta = ({ data }) => {
   let metaTags = [
     { charset: "utf-8" },
     {
-      title: "Best Real Estate Home Buyers | ANRD Homes"
+      title: "Best Real Estate Home Buyers in Your Area"
     },
     {
       property: "og:title",
-      content: "Best Real Estate Home Buyers | ANRD Homes"
+      content: "Best Real Estate Home Buyers in Your Area"
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "anrdhomes.com" },
@@ -37641,11 +37641,11 @@ var meta2 = ({ data }) => {
   let metaTags = [
     { charset: "utf-8" },
     {
-      title: "Best Real Estate Home Buyers | ANRD Homes"
+      title: "Best Real Estate Home Buyers in Your Area"
     },
     {
       property: "og:title",
-      content: "Best Real Estate Home Buyers | ANRD Homes"
+      content: "Best Real Estate Home Buyers in Your Area"
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "anrdhomes.com" },
@@ -37712,7 +37712,7 @@ function Terms() {
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-XTGKYFIJ.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-563G2R45.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-62DQTMJU.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "d767cfa6", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721809260625 }, url: "/build/manifest-D767CFA6.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-JKPHHGLD.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-GF3OP564.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YQRFY4FP.js", imports: ["/build/_shared/chunk-ZIIQOCE3.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/[robots.txt]": { id: "routes/[robots.txt]", parentId: "root", path: "robots.txt", index: void 0, caseSensitive: void 0, module: "/build/routes/[robots.txt]-XTGKYFIJ.js", imports: void 0, hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-XTNZDZTQ.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-E6YVOYND.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "25682710", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721809507693 }, url: "/build/manifest-25682710.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
