@@ -1,9 +1,9 @@
-import type { ActionFunction, LoaderArgs, V2_MetaFunction } from '@remix-run/cloudflare';
+import type {LoaderArgs, MetaDescriptor, V2_MetaFunction } from '@remix-run/cloudflare';
 import React from 'react';
 import Section from '~/components/Section/Section';
 
-export const meta: V2_MetaFunction = () => {
-	return [
+export const meta: V2_MetaFunction = ({ data }) => {
+	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
 		{ title: 'ANRD Homes | Terms and Condition' },
 		{ property: 'og:type', content: 'website' },
@@ -20,19 +20,20 @@ export const meta: V2_MetaFunction = () => {
 				'Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability.',
 		},
 	];
-};
 
-export const action: ActionFunction = async ({ request, context }) => {
-	console.log('...Action Parent');
-	return {
-		data: 'Hello World!',
-	};
+	if (data?.meta) {
+		metaTags.push(...data.meta);
+	}
+
+	return metaTags;
 };
 
 export async function loader(props: LoaderArgs) {
-	console.log('context', props.params);
 	return {
 		params: props.params,
+		meta: [
+			{ tagName: 'link', rel: 'canonical', href: props.request.url },
+		] satisfies MetaDescriptor[], 
 	};
 }
 

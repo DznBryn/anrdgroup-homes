@@ -629,7 +629,7 @@ function createMemoryHistory(options) {
     v5Compat = false
   } = options, entries;
   entries = initialEntries.map((entry2, index2) => createMemoryLocation(entry2, typeof entry2 == "string" ? null : entry2.state, index2 === 0 ? "default" : void 0));
-  let index = clampIndex(initialIndex ?? entries.length - 1), action4 = Action.Pop, listener3 = null;
+  let index = clampIndex(initialIndex ?? entries.length - 1), action3 = Action.Pop, listener3 = null;
   function clampIndex(n7) {
     return Math.min(Math.max(n7, 0), entries.length - 1);
   }
@@ -649,7 +649,7 @@ function createMemoryHistory(options) {
       return index;
     },
     get action() {
-      return action4;
+      return action3;
     },
     get location() {
       return getCurrentLocation();
@@ -667,28 +667,28 @@ function createMemoryHistory(options) {
       };
     },
     push(to, state) {
-      action4 = Action.Push;
+      action3 = Action.Push;
       let nextLocation = createMemoryLocation(to, state);
       index += 1, entries.splice(index, entries.length, nextLocation), v5Compat && listener3 && listener3({
-        action: action4,
+        action: action3,
         location: nextLocation,
         delta: 1
       });
     },
     replace(to, state) {
-      action4 = Action.Replace;
+      action3 = Action.Replace;
       let nextLocation = createMemoryLocation(to, state);
       entries[index] = nextLocation, v5Compat && listener3 && listener3({
-        action: action4,
+        action: action3,
         location: nextLocation,
         delta: 0
       });
     },
     go(delta) {
-      action4 = Action.Pop;
+      action3 = Action.Pop;
       let nextIndex = clampIndex(index + delta), nextLocation = entries[nextIndex];
       index = nextIndex, listener3 && listener3({
-        action: action4,
+        action: action3,
         location: nextLocation,
         delta
       });
@@ -818,7 +818,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
   let {
     window: window2 = document.defaultView,
     v5Compat = false
-  } = options, globalHistory = window2.history, action4 = Action.Pop, listener3 = null, index = getIndex();
+  } = options, globalHistory = window2.history, action3 = Action.Pop, listener3 = null, index = getIndex();
   index == null && (index = 0, globalHistory.replaceState(_extends({}, globalHistory.state, {
     idx: index
   }), ""));
@@ -828,16 +828,16 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
     }).idx;
   }
   function handlePop() {
-    action4 = Action.Pop;
+    action3 = Action.Pop;
     let nextIndex = getIndex(), delta = nextIndex == null ? null : nextIndex - index;
     index = nextIndex, listener3 && listener3({
-      action: action4,
+      action: action3,
       location: history.location,
       delta
     });
   }
   function push(to, state) {
-    action4 = Action.Push;
+    action3 = Action.Push;
     let location = createLocation(history.location, to, state);
     validateLocation && validateLocation(location, to), index = getIndex() + 1;
     let historyState = getHistoryState(location, index), url = history.createHref(location);
@@ -849,18 +849,18 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
       window2.location.assign(url);
     }
     v5Compat && listener3 && listener3({
-      action: action4,
+      action: action3,
       location: history.location,
       delta: 1
     });
   }
   function replace3(to, state) {
-    action4 = Action.Replace;
+    action3 = Action.Replace;
     let location = createLocation(history.location, to, state);
     validateLocation && validateLocation(location, to), index = getIndex();
     let historyState = getHistoryState(location, index), url = history.createHref(location);
     globalHistory.replaceState(historyState, "", url), v5Compat && listener3 && listener3({
-      action: action4,
+      action: action3,
       location: history.location,
       delta: 0
     });
@@ -871,7 +871,7 @@ function getUrlBasedHistory(getLocation, createHref, validateLocation, options) 
   }
   let history = {
     get action() {
-      return action4;
+      return action3;
     },
     get location() {
       return getLocation(window2, globalHistory);
@@ -3309,12 +3309,12 @@ var init_routeMatching = __esm({
 });
 async function callRouteActionRR({
   loadContext,
-  action: action4,
+  action: action3,
   params,
   request,
   routeId
 }) {
-  let result = await action4({
+  let result = await action3({
     request: stripDataParam(stripIndexParam(request)),
     context: loadContext,
     params
@@ -6272,16 +6272,16 @@ function getFormEncType(encType) {
   return encType != null && !supportedFormEncTypes.has(encType) ? (warning(false, '"' + encType + '" is not a valid `encType` for `<Form>`/`<fetcher.Form>` ' + ('and will default to "' + defaultEncType + '"')), null) : encType;
 }
 function getFormSubmissionInfo(target, basename) {
-  let method, action4, encType, formData, body;
+  let method, action3, encType, formData, body;
   if (isFormElement(target)) {
     let attr = target.getAttribute("action");
-    action4 = attr ? stripBasename(attr, basename) : null, method = target.getAttribute("method") || defaultMethod, encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType, formData = new FormData(target);
+    action3 = attr ? stripBasename(attr, basename) : null, method = target.getAttribute("method") || defaultMethod, encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType, formData = new FormData(target);
   } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
     let form = target.form;
     if (form == null)
       throw new Error('Cannot submit a <button> or <input type="submit"> without a <form>');
     let attr = target.getAttribute("formaction") || form.getAttribute("action");
-    if (action4 = attr ? stripBasename(attr, basename) : null, method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod, encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType, formData = new FormData(form, target), !isFormDataSubmitterSupported()) {
+    if (action3 = attr ? stripBasename(attr, basename) : null, method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod, encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType, formData = new FormData(form, target), !isFormDataSubmitterSupported()) {
       let {
         name,
         type,
@@ -6296,10 +6296,10 @@ function getFormSubmissionInfo(target, basename) {
   } else {
     if (isHtmlElement(target))
       throw new Error('Cannot submit element that is not <form>, <button>, or <input type="submit|image">');
-    method = defaultMethod, action4 = null, encType = defaultEncType, body = target;
+    method = defaultMethod, action3 = null, encType = defaultEncType, body = target;
   }
   return formData && encType === "text/plain" && (body = formData, formData = void 0), {
-    action: action4,
+    action: action3,
     method: method.toLowerCase(),
     encType,
     formData,
@@ -6512,13 +6512,13 @@ function useSubmit() {
   return React2.useCallback(function(target, options) {
     options === void 0 && (options = {}), validateClientSideSubmission();
     let {
-      action: action4,
+      action: action3,
       method,
       encType,
       formData,
       body
     } = getFormSubmissionInfo(target, basename);
-    router.navigate(options.action || action4, {
+    router.navigate(options.action || action3, {
       preventScrollReset: options.preventScrollReset,
       formData,
       body,
@@ -6539,13 +6539,13 @@ function useSubmitFetcher(fetcherKey, fetcherRouteId) {
   return React2.useCallback(function(target, options) {
     options === void 0 && (options = {}), validateClientSideSubmission();
     let {
-      action: action4,
+      action: action3,
       method,
       encType,
       formData,
       body
     } = getFormSubmissionInfo(target, basename);
-    fetcherRouteId == null && invariant(false, "No routeId available for useFetcher()"), router.fetch(fetcherKey, fetcherRouteId, options.action || action4, {
+    fetcherRouteId == null && invariant(false, "No routeId available for useFetcher()"), router.fetch(fetcherKey, fetcherRouteId, options.action || action3, {
       preventScrollReset: options.preventScrollReset,
       formData,
       body,
@@ -6554,21 +6554,21 @@ function useSubmitFetcher(fetcherKey, fetcherRouteId) {
     });
   }, [router, basename, fetcherKey, fetcherRouteId]);
 }
-function useFormAction(action4, _temp2) {
+function useFormAction(action3, _temp2) {
   let {
     relative
   } = _temp2 === void 0 ? {} : _temp2, {
     basename
   } = React2.useContext(NavigationContext), routeContext = React2.useContext(RouteContext);
   routeContext || invariant(false, "useFormAction must be used inside a RouteContext");
-  let [match2] = routeContext.matches.slice(-1), path = _extends3({}, useResolvedPath(action4 || ".", {
+  let [match2] = routeContext.matches.slice(-1), path = _extends3({}, useResolvedPath(action3 || ".", {
     relative
   })), location = useLocation();
-  if (action4 == null && (path.search = location.search, path.hash = location.hash, match2.route.index)) {
+  if (action3 == null && (path.search = location.search, path.hash = location.hash, match2.route.index)) {
     let params = new URLSearchParams(path.search);
     params.delete("index"), path.search = params.toString() ? "?" + params.toString() : "";
   }
-  return (!action4 || action4 === ".") && match2.route.index && (path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index"), basename !== "/" && (path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname])), createPath(path);
+  return (!action3 || action3 === ".") && match2.route.index && (path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index"), basename !== "/" && (path.pathname = path.pathname === "/" ? basename : joinPaths([basename, path.pathname])), createPath(path);
 }
 function createFetcherForm(fetcherKey, routeId) {
   let FetcherForm = /* @__PURE__ */ React2.forwardRef((props, ref) => {
@@ -6821,12 +6821,12 @@ var init_dist2 = __esm({
         replace: replace3,
         state,
         method = defaultMethod,
-        action: action4,
+        action: action3,
         onSubmit,
         submit,
         relative,
         preventScrollReset
-      } = _ref6, props = _objectWithoutPropertiesLoose(_ref6, _excluded3), formMethod = method.toLowerCase() === "get" ? "get" : "post", formAction = useFormAction(action4, {
+      } = _ref6, props = _objectWithoutPropertiesLoose(_ref6, _excluded3), formMethod = method.toLowerCase() === "get" ? "get" : "post", formAction = useFormAction(action3, {
         relative
       });
       return /* @__PURE__ */ React2.createElement("form", _extends3({
@@ -6888,7 +6888,7 @@ var require_server = __commonJS({
       location: locationProp = "/"
     }) {
       typeof locationProp == "string" && (locationProp = reactRouterDom.parsePath(locationProp));
-      let action4 = router.Action.Pop, location = {
+      let action3 = router.Action.Pop, location = {
         pathname: locationProp.pathname || "/",
         search: locationProp.search || "",
         hash: locationProp.hash || "",
@@ -6899,7 +6899,7 @@ var require_server = __commonJS({
         basename,
         children,
         location,
-        navigationType: action4,
+        navigationType: action3,
         navigator: staticNavigator,
         static: true
       });
@@ -9747,8 +9747,8 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function useContext5(context) {
         return currentHookNameInDev = "useContext", resolveCurrentlyRenderingComponent(), readContext(context);
       }
-      function basicStateReducer(state, action4) {
-        return typeof action4 == "function" ? action4(state) : action4;
+      function basicStateReducer(state, action3) {
+        return typeof action3 == "function" ? action3(state) : action3;
       }
       function useState9(initialState) {
         return currentHookNameInDev = "useState", useReducer(
@@ -9766,8 +9766,8 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
               renderPhaseUpdates.delete(queue);
               var newState = workInProgressHook.memoizedState, update = firstRenderPhaseUpdate;
               do {
-                var action4 = update.action;
-                isInHookUserCodeInDev = true, newState = reducer(newState, action4), isInHookUserCodeInDev = false, update = update.next;
+                var action3 = update.action;
+                isInHookUserCodeInDev = true, newState = reducer(newState, action3), isInHookUserCodeInDev = false, update = update.next;
               } while (update !== null);
               return workInProgressHook.memoizedState = newState, [newState, dispatch];
             }
@@ -9813,13 +9813,13 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function useLayoutEffect3(create2, inputs) {
         currentHookNameInDev = "useLayoutEffect", error("useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.");
       }
-      function dispatchAction(componentIdentity, queue, action4) {
+      function dispatchAction(componentIdentity, queue, action3) {
         if (numberOfReRenders >= RE_RENDER_LIMIT)
           throw new Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");
         if (componentIdentity === currentlyRenderingComponent) {
           didScheduleRenderPhaseUpdate = true;
           var update = {
-            action: action4,
+            action: action3,
             next: null
           };
           renderPhaseUpdates === null && (renderPhaseUpdates = /* @__PURE__ */ new Map());
@@ -13301,8 +13301,8 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function useContext5(context) {
         return currentHookNameInDev = "useContext", resolveCurrentlyRenderingComponent(), readContext(context);
       }
-      function basicStateReducer(state, action4) {
-        return typeof action4 == "function" ? action4(state) : action4;
+      function basicStateReducer(state, action3) {
+        return typeof action3 == "function" ? action3(state) : action3;
       }
       function useState9(initialState) {
         return currentHookNameInDev = "useState", useReducer(
@@ -13320,8 +13320,8 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
               renderPhaseUpdates.delete(queue);
               var newState = workInProgressHook.memoizedState, update = firstRenderPhaseUpdate;
               do {
-                var action4 = update.action;
-                isInHookUserCodeInDev = true, newState = reducer(newState, action4), isInHookUserCodeInDev = false, update = update.next;
+                var action3 = update.action;
+                isInHookUserCodeInDev = true, newState = reducer(newState, action3), isInHookUserCodeInDev = false, update = update.next;
               } while (update !== null);
               return workInProgressHook.memoizedState = newState, [newState, dispatch];
             }
@@ -13367,13 +13367,13 @@ Incoming: %s`, currentHookNameInDev, "[" + nextDeps.join(", ") + "]", "[" + prev
       function useLayoutEffect3(create2, inputs) {
         currentHookNameInDev = "useLayoutEffect", error("useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer's output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.");
       }
-      function dispatchAction(componentIdentity, queue, action4) {
+      function dispatchAction(componentIdentity, queue, action3) {
         if (numberOfReRenders >= RE_RENDER_LIMIT)
           throw new Error("Too many re-renders. React limits the number of renders to prevent an infinite loop.");
         if (componentIdentity === currentlyRenderingComponent) {
           didScheduleRenderPhaseUpdate = true;
           var update = {
-            action: action4,
+            action: action3,
             next: null
           };
           renderPhaseUpdates === null && (renderPhaseUpdates = /* @__PURE__ */ new Map());
@@ -22665,8 +22665,8 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
           stores: null
         };
       }
-      function basicStateReducer(state, action4) {
-        return typeof action4 == "function" ? action4(state) : action4;
+      function basicStateReducer(state, action3) {
+        return typeof action3 == "function" ? action3(state) : action3;
       }
       function mountReducer(reducer, initialArg, init) {
         var hook = mountWorkInProgressHook(), initialState;
@@ -22717,8 +22717,8 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
               if (update.hasEagerState)
                 newState = update.eagerState;
               else {
-                var action4 = update.action;
-                newState = reducer(newState, action4);
+                var action3 = update.action;
+                newState = reducer(newState, action3);
               }
             } else {
               var clone = {
@@ -22756,8 +22756,8 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
           queue.pending = null;
           var firstRenderPhaseUpdate = lastRenderPhaseUpdate.next, update = firstRenderPhaseUpdate;
           do {
-            var action4 = update.action;
-            newState = reducer(newState, action4), update = update.next;
+            var action3 = update.action;
+            newState = reducer(newState, action3), update = update.next;
           } while (update !== firstRenderPhaseUpdate);
           objectIs(newState, hook.memoizedState) || markWorkInProgressReceivedUpdate(), hook.memoizedState = newState, hook.baseQueue === null && (hook.baseState = newState), queue.lastRenderedState = newState;
         }
@@ -23068,11 +23068,11 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
         var hook = updateWorkInProgressHook(), id = hook.memoizedState;
         return id;
       }
-      function dispatchReducerAction(fiber, queue, action4) {
+      function dispatchReducerAction(fiber, queue, action3) {
         typeof arguments[3] == "function" && error("State updates from the useState() and useReducer() Hooks don't support the second callback argument. To execute a side effect after rendering, declare it in the component body with useEffect().");
         var lane = requestUpdateLane(fiber), update = {
           lane,
-          action: action4,
+          action: action3,
           hasEagerState: false,
           eagerState: null,
           next: null
@@ -23088,11 +23088,11 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
         }
         markUpdateInDevTools(fiber, lane);
       }
-      function dispatchSetState(fiber, queue, action4) {
+      function dispatchSetState(fiber, queue, action3) {
         typeof arguments[3] == "function" && error("State updates from the useState() and useReducer() Hooks don't support the second callback argument. To execute a side effect after rendering, declare it in the component body with useEffect().");
         var lane = requestUpdateLane(fiber), update = {
           lane,
-          action: action4,
+          action: action3,
           hasEagerState: false,
           eagerState: null,
           next: null
@@ -23107,7 +23107,7 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
               var prevDispatcher;
               prevDispatcher = ReactCurrentDispatcher$1.current, ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
               try {
-                var currentState = queue.lastRenderedState, eagerState = lastRenderedReducer(currentState, action4);
+                var currentState = queue.lastRenderedState, eagerState = lastRenderedReducer(currentState, action3);
                 if (update.hasEagerState = true, update.eagerState = eagerState, objectIs(eagerState, currentState)) {
                   enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane);
                   return;
@@ -23143,7 +23143,7 @@ Incoming: %s`, currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + next
           queue.lanes = newQueueLanes, markRootEntangled(root2, newQueueLanes);
         }
       }
-      function markUpdateInDevTools(fiber, lane, action4) {
+      function markUpdateInDevTools(fiber, lane, action3) {
         markStateUpdateScheduled(fiber, lane);
       }
       var ContextOnlyDispatcher = {
@@ -30606,9 +30606,9 @@ function _classPrivateFieldSet(receiver, privateMap, value) {
   var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
   return _classApplyDescriptorSet(receiver, descriptor, value), value;
 }
-function _classExtractFieldDescriptor(receiver, privateMap, action4) {
+function _classExtractFieldDescriptor(receiver, privateMap, action3) {
   if (!privateMap.has(receiver))
-    throw new TypeError("attempted to " + action4 + " private field on non-instance");
+    throw new TypeError("attempted to " + action3 + " private field on non-instance");
   return privateMap.get(receiver);
 }
 function _classApplyDescriptorGet(receiver, descriptor) {
@@ -37246,7 +37246,7 @@ var meta = ({ data }) => {
       content: "ANRD Homes buys all types of homes quickly and easily. Receive a fair cash offer and enjoy a seamless closing process. Contact us to learn more."
     }
   ];
-  return data != null && data.meta && metaTags.push(...data.meta), console.log("metaTags", metaTags), metaTags;
+  return data != null && data.meta && metaTags.push(...data.meta), metaTags;
 };
 var action2 = async ({ request, context }) => ({
   data: "Hello World!"
@@ -37544,47 +37544,49 @@ function Index() {
 }
 var terms_exports = {};
 __export(terms_exports, {
-  action: () => action3,
   default: () => Terms,
   loader: () => loader3,
   meta: () => meta2
 });
 var import_jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
-var meta2 = () => [
-  { charset: "utf-8" },
-  { title: "ANRD Homes | Terms and Condition" },
-  { property: "og:type", content: "website" },
-  { property: "og:site_name", content: "anrdhomes.com" },
-  { property: "og:title", content: "ANRD Homes | Terms and Condition" },
-  {
-    property: "og:description",
-    content: "Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability."
-  },
-  {
-    name: "description",
-    content: "Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability."
-  }
-];
-var action3 = async ({ request, context }) => (console.log("...Action Parent"), {
-  data: "Hello World!"
-});
+var meta2 = ({ data }) => {
+  let metaTags = [
+    { charset: "utf-8" },
+    { title: "ANRD Homes | Terms and Condition" },
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "anrdhomes.com" },
+    { property: "og:title", content: "ANRD Homes | Terms and Condition" },
+    {
+      property: "og:description",
+      content: "Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability."
+    },
+    {
+      name: "description",
+      content: "Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability."
+    }
+  ];
+  return data != null && data.meta && metaTags.push(...data.meta), metaTags;
+};
 async function loader3(props) {
-  return console.log("context", props.params), {
-    params: props.params
+  return {
+    params: props.params,
+    meta: [
+      { tagName: "link", rel: "canonical", href: props.request.url }
+    ]
   };
 }
 function Terms({}) {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "w-full h-auto grid grid-cols-1 gap-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(Section, { header: "Terms and Conditions for Cash Property Purchase", children: `These Terms and Conditions ("Terms") govern your use of [Your Company's Website] (the "Website") and the services provided by [Your Company Name] (the "Company") for the purchase of properties in cash. By accessing or using this Website and its services, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use the Website or its services. 1. Property Purchase Process 1.1. The Company offers to purchase properties in cash, subject to satisfactory due diligence and agreement on the terms and conditions of the sale. 1.2. The property seller (the "Seller") agrees to provide accurate and complete information about the property, including but not limited to its condition, title, and any known issues. 1.3. The Company reserves the right to withdraw its cash offer at any time if, in its sole discretion, the due diligence process uncovers information that renders the property unsuitable for purchase. 2. Cash Offer 2.1. Upon satisfactory completion of due diligence, the Company will make a cash offer to the Seller. 2.2. The Seller has the right to accept or reject the cash offer. Acceptance of the offer by the Seller will constitute a legally binding agreement to sell the property to the Company. 3. Closing 3.1. The closing of the property sale will occur within a mutually agreed-upon timeframe. 3.2. The Company will provide the necessary funds for the cash purchase at the closing. 4. Representations and Warranties 4.1. The Seller represents and warrants that they have the legal authority to sell the property and that the information provided about the property is accurate and complete. 4.2. The Company represents and warrants that it has the financial capacity to complete the cash purchase. 5. Privacy and Data 5.1. The Company will collect and use personal information in accordance with its Privacy Policy, which can be accessed on the Website. 6. Limitation of Liability 6.1. To the fullest extent permitted by law, the Company shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from or related to the purchase of the property. 7. Governing Law 7.1. These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. 8. Changes to Terms 8.1. The Company reserves the right to modify or update these Terms at any time. Updated Terms will be posted on the Website. 9. Contact Information 9.1. For questions or concerns regarding these Terms, please contact [Your Contact Information]. By using the Website and its services, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.` }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 42,
+    lineNumber: 43,
     columnNumber: 4
   }, this) }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 41,
+    lineNumber: 42,
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-E47SOEYV.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-WBHJY2E3.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "81a247c2", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721804254295 }, url: "/build/manifest-81A247C2.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-T65JTRUL.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-KMIREMNX.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "f7253dcf", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721804514632 }, url: "/build/manifest-F7253DCF.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";
@@ -38091,7 +38093,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-IK6k2Z/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-qL1cKT/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   ...void 0 ?? [],
   middleware_ensure_req_body_drained_default,
@@ -38121,7 +38123,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// ../.wrangler/tmp/bundle-IK6k2Z/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-qL1cKT/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

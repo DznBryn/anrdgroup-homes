@@ -40,7 +40,7 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	if (data?.meta) {
 		metaTags.push(...data.meta);
 	}
-	console.log('metaTags', metaTags);
+	
 	return metaTags;
 };
 
