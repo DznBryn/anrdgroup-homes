@@ -33,6 +33,40 @@ export const meta: V2_MetaFunction = ({ data }) => {
 			content:
 				'ANRD Homes buys all types of homes quickly and easily. Receive a fair cash offer and enjoy a seamless closing process. Contact us to learn more.',
 		},
+		{
+			name: 'og:keywords',
+			content:
+				'ANRD Homes, real estate, sell my house, sell my property, cash offer, distressed property, foreclosure, structural issues, property in disrepair, fair cash offer, quick closing, stress-free transaction, ANRD Group Inc',
+		},
+		{
+			name: 'og:publisher',
+			content: 'ANRD Group Inc',
+		},
+		{
+			name: 'keywords',
+			content:
+				'ANRD Homes, real estate, sell my house, sell my property, cash offer, distressed property, foreclosure, structural issues, property in disrepair, fair cash offer, quick closing, stress-free transaction, ANRD Group Inc',
+		},
+		{
+			name: 'publisher',
+			content: 'ANRD Group Inc',
+		},
+		{
+			name: 'robots',
+			content: 'index, follow',
+		},
+		{
+			name: 'viewport',
+			content: 'width=device-width, initial-scale=1',
+		},
+		{
+			name: 'msapplication-TileColor',
+			content: '#262626',
+		},
+		{
+			name: 'theme-color',
+			content: '#262626',
+		},
 	];
 
 	if (data?.meta) {
