@@ -37229,14 +37229,14 @@ var meta = ({ data }) => {
   let metaTags = [
     { charset: "utf-8" },
     {
-      title: "ANRD Homes"
+      title: "ANRD Home Solutions"
+    },
+    {
+      property: "og:title",
+      content: "ANRD Home Solutions"
     },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "anrdhomes.com" },
-    {
-      property: "og:title",
-      content: "ANRD Homes Real Estate"
-    },
     {
       property: "og:description",
       content: "ANRD Homes buys all types of homes quickly and easily. Receive a fair cash offer and enjoy a seamless closing process. Contact us to learn more."
@@ -37585,10 +37585,15 @@ var import_jsx_dev_runtime20 = __toESM(require_jsx_dev_runtime(), 1);
 var meta2 = ({ data }) => {
   let metaTags = [
     { charset: "utf-8" },
-    { title: "ANRD Homes Terms and Conditions" },
+    {
+      title: "ANRD Home Solutions"
+    },
+    {
+      property: "og:title",
+      content: "ANRD Home Solutions"
+    },
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "anrdhomes.com" },
-    { property: "og:title", content: "ANRD Homes Terms and Conditions" },
     {
       property: "og:description",
       content: "Our Terms and Conditions outlines the rules and guidelines that govern the use of our website and the services we offer. It covers essential information such as the property purchase process, cash offers, closing procedures, privacy practices, and limitations of liability."
@@ -37644,15 +37649,15 @@ async function loader3(props) {
 function Terms() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)("div", { className: "w-full h-auto grid grid-cols-1 gap-12", children: /* @__PURE__ */ (0, import_jsx_dev_runtime20.jsxDEV)(Section, { header: "Terms and Conditions for Cash Property Purchase", children: `These Terms and Conditions ("Terms") govern your use of [Your Company's Website] (the "Website") and the services provided by [Your Company Name] (the "Company") for the purchase of properties in cash. By accessing or using this Website and its services, you agree to be bound by these Terms. If you do not agree with these Terms, please do not use the Website or its services. 1. Property Purchase Process 1.1. The Company offers to purchase properties in cash, subject to satisfactory due diligence and agreement on the terms and conditions of the sale. 1.2. The property seller (the "Seller") agrees to provide accurate and complete information about the property, including but not limited to its condition, title, and any known issues. 1.3. The Company reserves the right to withdraw its cash offer at any time if, in its sole discretion, the due diligence process uncovers information that renders the property unsuitable for purchase. 2. Cash Offer 2.1. Upon satisfactory completion of due diligence, the Company will make a cash offer to the Seller. 2.2. The Seller has the right to accept or reject the cash offer. Acceptance of the offer by the Seller will constitute a legally binding agreement to sell the property to the Company. 3. Closing 3.1. The closing of the property sale will occur within a mutually agreed-upon timeframe. 3.2. The Company will provide the necessary funds for the cash purchase at the closing. 4. Representations and Warranties 4.1. The Seller represents and warrants that they have the legal authority to sell the property and that the information provided about the property is accurate and complete. 4.2. The Company represents and warrants that it has the financial capacity to complete the cash purchase. 5. Privacy and Data 5.1. The Company will collect and use personal information in accordance with its Privacy Policy, which can be accessed on the Website. 6. Limitation of Liability 6.1. To the fullest extent permitted by law, the Company shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from or related to the purchase of the property. 7. Governing Law 7.1. These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction]. 8. Changes to Terms 8.1. The Company reserves the right to modify or update these Terms at any time. Updated Terms will be posted on the Website. 9. Contact Information 9.1. For questions or concerns regarding these Terms, please contact [Your Contact Information]. By using the Website and its services, you acknowledge that you have read, understood, and agreed to these Terms and Conditions.` }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 78,
+    lineNumber: 83,
     columnNumber: 4
   }, this) }, void 0, false, {
     fileName: "app/routes/terms.tsx",
-    lineNumber: 77,
+    lineNumber: 82,
     columnNumber: 3
   }, this);
 }
-var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-LD5ND7UM.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-GQYZVHRN.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "e8511694", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721805659301 }, url: "/build/manifest-E8511694.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-XLYOVSX6.js", imports: ["/build/_shared/chunk-O4BRYNJ4.js", "/build/_shared/chunk-YM6PSKAJ.js", "/build/_shared/chunk-U4FRFQSK.js", "/build/_shared/chunk-XGOTYLZ5.js", "/build/_shared/chunk-ITN7WGW5.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-7M6SC7J5.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KPL2IKOU.js", imports: ["/build/_shared/chunk-WETHGHLQ.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: true, caseSensitive: void 0, module: "/build/routes/_index-ENXLBN55.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: true, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false }, "routes/terms": { id: "routes/terms", parentId: "root", path: "terms", index: void 0, caseSensitive: void 0, module: "/build/routes/terms-CGHWVQJT.js", imports: ["/build/_shared/chunk-5W43MIFW.js"], hasAction: false, hasLoader: true, hasCatchBoundary: false, hasErrorBoundary: false } }, version: "ff50e17a", hmr: { runtime: "/build/_shared/chunk-ITN7WGW5.js", timestamp: 1721805853237 }, url: "/build/manifest-FF50E17A.js" };
 var assetsBuildDirectory = "public/build";
 var future = { v2_dev: true, unstable_postcss: false, unstable_tailwind: false, v2_errorBoundary: true, v2_headers: true, v2_meta: true, v2_normalizeFormMethod: true, v2_routeConvention: true };
 var publicPath = "/build/";

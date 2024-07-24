@@ -15,14 +15,14 @@ export const meta: V2_MetaFunction = ({ data }) => {
 	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
 		{
-			title: 'ANRD Homes',
+			title: 'ANRD Home Solutions',
+		},
+		{
+			property: 'og:title',
+			content: 'ANRD Home Solutions',
 		},
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
-		{
-			property: 'og:title',
-			content: 'ANRD Homes Real Estate',
-		},
 		{
 			property: 'og:description',
 			content:
