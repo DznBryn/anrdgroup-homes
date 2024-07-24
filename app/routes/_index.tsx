@@ -1,39 +1,63 @@
-import type { ActionFunction, LoaderFunction, V2_MetaFunction } from '@remix-run/cloudflare';
+import {
+	json,
+	MetaDescriptor,
+	type ActionFunction,
+	type LoaderFunction,
+	type V2_MetaFunction,
+} from '@remix-run/cloudflare';
 import Banner from '~/components/Banners/Banner';
 import Button from '~/components/Buttons/Button';
 import Section from '~/components/Section/Section';
 import { PROCESSES, SITUATIONS } from '~/libs/conts';
 import type { ProcessCardProps } from '~/libs/type';
 
-export const meta: V2_MetaFunction = () => {
-	return [
+export const meta: V2_MetaFunction = ({ data }) => {
+	const metaTags: MetaDescriptor[] = [
 		{ charset: 'utf-8' },
-		{ title: 'ANRD Homes | Real Estate Investing' },
+		{
+			title:
+				'Selling Your Home Made Easy | ANRD Homes Cash Offers for All Real Estate Properties',
+		},
 		{ property: 'og:type', content: 'website' },
 		{ property: 'og:site_name', content: 'anrdhomes.com' },
-		{ property: 'og:title', content: 'ANRD Homes | Real Estate Investing' },
+		{
+			property: 'og:title',
+			content:
+				'Selling Your Home Made Easy | ANRD Homes Cash Offers for All Real Estate Properties',
+		},
 		{
 			property: 'og:description',
-			content: 'Building Communities for a Better Tomorrow',
+			content:
+				'ANRD Homes buys all types of homes quickly and easily. Receive a fair cash offer and enjoy a seamless closing process. Contact us to learn more.',
 		},
 		{
 			name: 'description',
-			content: 'Building Communities for a Better Tomorrow',
+			content:
+				'ANRD Homes buys all types of homes quickly and easily. Receive a fair cash offer and enjoy a seamless closing process. Contact us to learn more.',
 		},
 	];
+
+	if (data?.meta) {
+		metaTags.push(...data.meta);
+	}
+	console.log('metaTags', metaTags);
+	return metaTags;
 };
 
 export const action: ActionFunction = async ({ request, context }) => {
- return {
-	data: 'Hello World!',
- }
-}
+	return {
+		data: 'Hello World!',
+	};
+};
 
 export const loader: LoaderFunction = async ({ request, context }) => {
-	return {
+	return json({
 		status: 200,
-	};
-}
+		meta: [
+			{ tagName: 'link', rel: 'canonical', href: request.url },
+		] satisfies MetaDescriptor[],
+	});
+};
 
 export default function Index() {
 	return (
